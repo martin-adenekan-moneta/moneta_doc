@@ -4,19 +4,19 @@ This endpoint allows you to send SMS messages to your users with customizable co
 
 #### Implementation Best Practices
 
-1 Format Phone Numbers Correctly
+1 **Format Phone Numbers Correctly**
 
 Always use international format for phone numbers, removing any ' '+' prefix (e.g., '2348012345678' instead of '+2348012345678').
 
-2 Keep Messages Concise
+2 **Keep Messages Concise**
 
 SMS messages exceeding 160 characters will be split into multiple units and incur additional costs. Keep messages brief and focused.
 
-3 Include Sender Information
+3 **Include Sender Information**
 
 When sending transactional or informational messages, include your company name at the beginning to prevent messages from being marked as spam.
 
-4 Handle Delivery Status
+4 **Handle Delivery Status**
 
 Store the reference code from the response to track the status of the notification in your system.
 

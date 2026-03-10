@@ -4,29 +4,29 @@ This endpoint allows you to send email notifications to your users with customiz
 
 #### Implementation Best Practices
 
-1 HTML Email Design
+1 **HTML Email Design**
 
 Create responsive HTML templates that display properly across various email clients and screen sizes.
 
-2 Always Include Plain Text
+2 **Always Include Plain Text**
 
 Provide both HTML and plain text content to ensure deliverability and accessibility for all recipients.
 
-3 Subject Line Optimization
+3 **Subject Line Optimization**
 
 Keep subject lines under 50 characters and avoid using spam trigger words to improve deliverability.
 
-4 Email Validation
+4 **Email Validation**
 
 Validate email addresses before sending to prevent bounces and maintain a good sender reputation.
 
-5 Handling Attachments
+5 **Handling Attachments**
 
 Keep attachments small (under 10MB total) and use widely supported file formats to ensure delivery.
 
 
 
-<mark style="color:green;">`POST`</mark>  `{{baseUrl}}/v2/notification`
+<mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./#base-url-for-push-notifications)`}}/v2/notification`
 
 #### Request Headers
 

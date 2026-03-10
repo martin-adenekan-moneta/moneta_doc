@@ -4,15 +4,15 @@ This endpoint allows you to verify the status of a specific notification by prov
 
 #### Implementation Best Practices
 
-1 Store Reference Codes
+1 **Store Reference Codes**
 
 Always store the reference code returned when sending notifications to facilitate status verification later.
 
-2 Implement Status Checking
+2 **Implement Status Checking**
 
 For critical notifications, implement automated status verification to confirm delivery and trigger retries if needed.
 
-3 Handle Failed Statuses
+3 **Handle Failed Statuses**
 
 When a notification shows a "failed" status, check the recipient details and consider alternative communication channels.
 

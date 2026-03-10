@@ -6,19 +6,19 @@ This endpoint allows you to send WhatsApp messages to your users. WhatsApp notif
 
 #### Implementation Best Practices
 
-1 Phone Number Validation
+1 **Phone Number Validation**
 
 Ensure phone numbers include the country code without the '+' symbol (e.g., '`2348012345678`' for Nigeria).
 
-2 Recipient Opt-in
+2 **Recipient Opt-in**
 
 Only send WhatsApp messages to users who have explicitly opted in to receive communications via this channel.
 
-3 Message Formatting
+3 **Message Formatting**
 
 While WhatsApp supports longer messages than SMS, keep content concise and relevant for better engagement.
 
-4 Fallback Strategy
+4 **Fallback Strategy**
 
 Consider implementing a fallback to SMS if WhatsApp message delivery fails or the recipient is not a WhatsApp user.
 

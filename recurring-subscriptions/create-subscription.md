@@ -10,10 +10,10 @@ Billing & recurring subscriptions can be created using the provided customer and
 
 **Headers**
 
-| Name          | Value              |
-| ------------- | ------------------ |
-| Content-Type  | `application/json` |
-| Authorization | `Bearer <token>`   |
+| Name          | Value                                                                  |
+| ------------- | ---------------------------------------------------------------------- |
+| Content-Type  | `application/json`                                                     |
+| Authorization | `Bearer <`[`service_token`](../authentication-and-service-token.md)`>` |
 
 
 
