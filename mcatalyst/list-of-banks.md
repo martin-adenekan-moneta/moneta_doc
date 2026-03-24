@@ -8,9 +8,19 @@ This endpoint retrieves the list of avialable banks&#x20;
 
 &#x20;Remember to include your X-Service-Token header as [shown here](./)
 
+**Headers**
+
+| Name              | Value              |
+| ----------------- | ------------------ |
+| Content-Type      | `application/json` |
+| `X-Service-Token` | `Bearer <token>`   |
+
+Body
+
 {% tabs %}
 {% tab title="Curl" %}
 ```bash
+
 curl --request POST \
     "https://api.moneta.ng/api/v2/bvn/account_identity_check" \
     --header "X-Service-Token: 6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d" \

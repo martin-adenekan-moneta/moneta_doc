@@ -10,7 +10,7 @@ This method fetches mandates for the currently authenticated user, using optiona
 
 <mark style="color:green;">`POST`</mark> `/debit-instruction-/create`
 
-\<Description of the endpoint>
+
 
 **Headers**
 
