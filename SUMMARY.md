@@ -27,6 +27,7 @@
   * [Send Whatsapp](messaging-and-push-notifications/send-whatsapp.md)
 * [Moneta Banking](moneta-banking.md)
 * [mCatalyst](mcatalyst/README.md)
+  * [List of Banks](mcatalyst/list-of-banks.md)
   * [Create Debit Instruction](mcatalyst/create-debit-instruction.md)
   * [BVN Verification System](mcatalyst/bvn-verification-system/README.md)
     * [BVN Information](mcatalyst/bvn-verification-system/bvn-information.md)

@@ -1,6 +1,6 @@
 # Create Debit Instruction
 
-Creates a Debit Instruction On a Customer Account. The Owner of the profilled Account is Expcted to Pay the Authorization Amount less than 30 minutes after the creation of the Debit-Instruction. The Mandate expires if no Payment is made in the first 30 minutes after the creation of the Debit-Instruction.
+Creates a Debit Instruction On a Customer Account. The Owner of the profiled Account is expected to Pay the Authorization Amount less than 30 minutes after the creation of the Debit-Instruction. The Mandate expires if no Payment is made in the first 30 minutes after the creation of the Debit-Instruction.
 
 ### Debit Instruction
 
@@ -31,7 +31,7 @@ This method fetches mandates for the currently authenticated user, using optiona
 Examples
 
 {% tabs %}
-{% tab title="JavaScript" %}
+{% tab title="Curl" %}
 ```bash
 curl --request POST \
     "https://api.moneta.ng/api/v2/debit-instruction/create" \
@@ -61,6 +61,70 @@ curl --request POST \
 ```
 {% endtab %}
 
+{% tab title="Javascript" %}
+```js
+const createMonetaMandate = async (customerData) => {
+    const API_URL = {{baseUrl}};
+    
+    // 1. Setup Headers
+    const headers = {
+        "X-Service-Token": ".........", // Keep this in .env for production!
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+    };
+
+    try {
+        // 2. Execute Request
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(customerData),
+        });
+
+        // 3. Handle HTTP-level Errors (4xx, 5xx)
+        if (!response.ok) {
+            const errorBody = await response.json();
+            throw new Error(`Moneta API Error (${response.status}): ${errorBody.message || 'Unknown Error'}`);
+        }
+
+        // 4. Parse and return successful response
+        const result = await response.json();
+        console.log("Mandate successfully created:", result.data?.reference || 'No ref returned');
+        return result;
+
+    } catch (error) {
+        // 5. Centralized Error Logging
+        console.error("Mandate Creation Failed:", error.message);
+        throw error; // Rethrow so the UI/calling function can show an alert
+    }
+};
+
+// --- Example Usage ---
+const myMandate = {
+    mandate_type: 1,
+    customer_phone: "08012345678",
+    customer_account_no: "1234567890",
+    bank_code: "058", // GTBank example
+    customer_name: "John Doe",
+    amount: 500000,     // (In Kobo)
+    narration: "Monthly Subscription",
+    frequency: 1,
+    start_date: "2026-03-24",
+    end_date: "2027-03-24",
+    customer_reference: `REF-${Date.now()}`, // Dynamic unique reference
+    customer_signature_file_base_encoded: "iVBORw0KGgoAAAANSUhEUg...", // Raw Base64
+};
+```
+{% endtab %}
+
+{% tab title="Php" %}
+
+{% endtab %}
+
+{% tab title="Laravel" %}
+
+{% endtab %}
+
 {% tab title="Python" %}
 ```python
 message = "hello world"
@@ -68,8 +132,8 @@ print(message)
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
+{% tab title="Java" %}
+```java
 message = "hello world"
 puts message
 ```
