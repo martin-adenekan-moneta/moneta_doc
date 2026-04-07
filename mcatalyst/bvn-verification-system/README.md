@@ -25,7 +25,7 @@ Please note: every field is required&#x20;
 
 | Name                | Type   | Description                                                     |
 | ------------------- | ------ | --------------------------------------------------------------- |
-| `sope`              | string | The scope of this request e.g accounts                          |
+| `scope`             | string | The scope of this request e.g accounts                          |
 | `channel_code`      | string | The code for the channel through which the request is generated |
 | customer\_reference | string | The reference for the customer                                  |
 | bvn                 | string | The BVN of the customer                                         |

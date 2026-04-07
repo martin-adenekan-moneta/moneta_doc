@@ -19,11 +19,9 @@ This endpoint is used to suspend or activate a Debit Instruction.
 
 **Body**
 
-<table><thead><tr><th width="128">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>mandate_ref</code></td><td>string</td><td>The reference ID of the mandate e.g MT-JJEe3CJ</td></tr><tr><td><code>mandate_code</code></td><td>string</td><td>The code of the mandate. e.g: <code>RC/1234/567890</code></td></tr><tr><td><code>mandate_status</code></td><td>number</td><td>The new status of the mandate. 1 = Active, 2 = Suspended, 3 = Deleted</td></tr><tr><td><code>workflow_status</code></td><td>number</td><td>The new workflow status of the mandate. 1 = New Debit Instruction Initiated By Client, 2 = Debit Instruction Authorized By Client, 3 = Debit Instruction Rejected By Client, 4 = Debit Instruction Approved By Client, 5 =Debit Instruction Disapproved By Client, 8 = Debit Instruction Approved By Bank</td></tr></tbody></table>
+<table><thead><tr><th width="191">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>mandate_ref</code></td><td>string</td><td>The reference ID of the mandate e.g MT-JJEe3CJ</td></tr><tr><td><code>mandate_code</code></td><td>string</td><td>The code of the mandate. e.g: <code>RC/1234/567890</code></td></tr><tr><td><code>mandate_status</code></td><td>number</td><td>The new status of the mandate. 1 = Active, 2 = Suspended, 3 = Deleted</td></tr><tr><td><code>workflow_status</code></td><td>number</td><td>The new workflow status of the mandate. 1 = New Debit Instruction Initiated By Client, 2 = Debit Instruction Authorized By Client, 3 = Debit Instruction Rejected By Client, 4 = Debit Instruction Approved By Client, 5 =Debit Instruction Disapproved By Client, 8 = Debit Instruction Approved By Bank</td></tr></tbody></table>
 
-Body
-
-
+Example
 
 {% tabs %}
 {% tab title="JavaScript" %}

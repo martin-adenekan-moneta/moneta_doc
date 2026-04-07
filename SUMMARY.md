@@ -31,6 +31,8 @@
   * [Create Debit Instruction](mcatalyst/create-debit-instruction.md)
   * [Get Debit Instruction Details](mcatalyst/get-debit-instruction-details.md)
   * [Update Debit Instruction Status](mcatalyst/update-debit-instruction-status.md)
+  * [Payment Using Debit Instruction](mcatalyst/payment-using-debit-instruction.md)
+  * [Customer Account Enquiry](mcatalyst/customer-account-enquiry.md)
   * [BVN Verification System](mcatalyst/bvn-verification-system/README.md)
     * [BVN Information](mcatalyst/bvn-verification-system/bvn-information.md)
     * [Verify BVN](mcatalyst/bvn-verification-system/verify-bvn.md)
