@@ -1,4 +1,4 @@
-# BVN Name Enquiry
+# Account Enquiry
 
 This endpoint allows you to perform an account details enquiry against the provided BVN including name match verification.
 
@@ -12,7 +12,7 @@ This endpoint allows you to perform an account details enquiry against the provi
 
 | Name              | Value              |
 | ----------------- | ------------------ |
-| Content-Type      | `application/json` |
+| `Content-Type`    | `application/json` |
 | `X-Service-Token` | `Bearer <token>`   |
 
 **Body**

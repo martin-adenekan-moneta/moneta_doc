@@ -4,7 +4,7 @@ This endpoint allows you to verify and onboard a customer's BVN by checking agai
 
 
 
-#### Implementation Guide
+#### **Implementation Guide**
 
 1 Generate Authentication Token
 
