@@ -10,23 +10,22 @@ All API requests must include your authentication token in the header. See the G
 
 
 
-<mark style="color:green;">`POST`</mark>  `https://api.moneta.ng/api/v1/kyc/bvn`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v1/kyc/bvn`
 
 #### Path Parameters
 
-| Parameter   | Type   | Required | Description                                   |
-| ----------- | ------ | -------- | --------------------------------------------- |
-| bvn\_number | string | Required | 11-digit Bank Verification Number to retrieve |
+| Parameter    | Type   | Required | Description                                   |
+| ------------ | ------ | -------- | --------------------------------------------- |
+| `bvn_number` | string | Required | 11-digit Bank Verification Number to retrieve |
 
 #### Request Example
 
-javascript
-
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-// Using fetch API
-const bvnNumber = '22222222222';
-const url = `https://api.moneta.ng/api/v1/kyc/bvn/${bvnNumber}`;
-const token = 'YOUR_AUTH_TOKEN';
+const bvnNumber = '...............';
+const url = `https://api.moneta.ng/api/v1/kyc/bvn/`+bvnNumber;
+const token = '...................';
 
 fetch(url, {
   method: 'GET',
@@ -34,20 +33,32 @@ fetch(url, {
     'Authorization': 'Bearer ' + token
   }
      body: JSON.stringify({
-    bvn: '22222222222'
+    bvn: '..................'
   })
 })
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+```
+{% endtab %}
+{% endtabs %}
 
 #### Response Format
 
 The response format is identical to the one from the Verify BVN endpoint.
 
-Success Response
-
+{% tabs %}
+{% tab title="200" %}
 ```json
 {
   "status": true,
@@ -65,3 +76,11 @@ Success Response
   "statusCode": 200
 }
 ```
+{% endtab %}
+
+{% tab title="400" %}
+```python
+```
+{% endtab %}
+{% endtabs %}
+

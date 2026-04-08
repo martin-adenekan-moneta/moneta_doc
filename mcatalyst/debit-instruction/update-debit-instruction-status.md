@@ -6,7 +6,7 @@ This endpoint is used to suspend or activate a Debit Instruction.
 
 ## Debit Instruction Status
 
-<mark style="color:green;">`POST`</mark> `/debit-instruction/disable-enable`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/debit-instruction/disable-enable`
 
 
 
@@ -14,7 +14,7 @@ This endpoint is used to suspend or activate a Debit Instruction.
 
 | Name              | Value              |
 | ----------------- | ------------------ |
-| Content-Type      | `application/json` |
+| `Content-Type`    | `application/json` |
 | `X-Service-Token` | `Bearer <token>`   |
 
 **Body**

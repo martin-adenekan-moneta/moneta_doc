@@ -4,7 +4,7 @@ This Endpoint Allows our merchants & clients to validate a Customer Account Numb
 
 ## Account Name Enquiry
 
-<mark style="color:green;">`POST`</mark> `/v2/debit-instruction/account/name-enquiry`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/account/name-enquiry`
 
 
 
@@ -12,16 +12,16 @@ This Endpoint Allows our merchants & clients to validate a Customer Account Numb
 
 | Name              | Value              |
 | ----------------- | ------------------ |
-| Content-Type      | `application/json` |
+| `Content-Type`    | `application/json` |
 | `X-Service-Token` | `Bearer <token>`   |
 
 **Body**
 
-| Name              | Type   | Description                                                      |
-| ----------------- | ------ | ---------------------------------------------------------------- |
-| `bvn`             | string | The Bank Verification Number (11 digits). Example: `22345678901` |
-| `account_number`  | string | The Account Number (10 digits). Example: `1234567890`            |
-| institution\_code | string | The code of the financial institution. Example: `00190`          |
+| Name               | Type   | Description                                                      |
+| ------------------ | ------ | ---------------------------------------------------------------- |
+| `bvn`              | string | The Bank Verification Number (11 digits). Example: `22345678901` |
+| `account_number`   | string | The Account Number (10 digits). Example: `1234567890`            |
+| `institution_code` | string | The code of the financial institution. Example: `00190`          |
 
 **Example**
 

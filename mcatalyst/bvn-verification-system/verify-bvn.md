@@ -32,20 +32,19 @@ All API requests must include your authentication token in the header. See the G
 
 #### Request Parameters
 
-| Parameter         | Type   | Required | Description                                                            |
-| ----------------- | ------ | -------- | ---------------------------------------------------------------------- |
-| bvn               | string | Required | 11-digit Bank Verification Number of the customer                      |
-| first\_name       | string | Optional | Customer's first name for additional verification (recommended)        |
-| last\_name        | string | Optional | Customer's last name for additional verification (recommended)         |
-| account\_number   | string | Required | Customer's Account Number for Specific Bank verification (recommended) |
-| institution\_code | string | Required | The Institution Code for the customer's Bank (recommended).            |
+| Parameter          | Type   | Required | Description                                                            |
+| ------------------ | ------ | -------- | ---------------------------------------------------------------------- |
+| `bvn`              | string | Required | 11-digit Bank Verification Number of the customer                      |
+| `first_name`       | string | Optional | Customer's first name for additional verification (recommended)        |
+| `last_name`        | string | Optional | Customer's last name for additional verification (recommended)         |
+| `account_number`   | string | Required | Customer's Account Number for Specific Bank verification (recommended) |
+| `institution_code` | string | Required | The Institution Code for the customer's Bank (recommended).            |
 
-#### Request Example
+#### Example
 
-javascript
-
-```js
-// Using fetch API
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
 const url = 'https://api.moneta.ng/api/v1/kyc/bvn/verify';
 const token = 'YOUR_AUTH_TOKEN';
 
@@ -67,6 +66,28 @@ fetch(url, {
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
 ```
+{% endtab %}
+
+{% tab title="PHP" %}
+```
+// Some code
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+message = "hello world"
+puts message
+```
+{% endtab %}
+{% endtabs %}
+
+
 
 #### Response Format
 

@@ -4,7 +4,7 @@ This endpoint retrieves the status from debit instruction
 
 ## Get Details
 
-<mark style="color:green;">`POST`</mark> `/debit-instruction/details`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/debit-instruction/details`
 
 
 
@@ -12,7 +12,7 @@ This endpoint retrieves the status from debit instruction
 
 | Name              | Value              |
 | ----------------- | ------------------ |
-| Content-Type      | `application/json` |
+| `Content-Type`    | `application/json` |
 | `X-Service-Token` | `Bearer <token>`   |
 
 **Body**
@@ -28,7 +28,7 @@ This endpoint retrieves the status from debit instruction
 const url = new URL(baseUrl);
 
 const headers = {
-    "X-Service-Token": "6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d",
+    "X-Service-Token": "......................",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };

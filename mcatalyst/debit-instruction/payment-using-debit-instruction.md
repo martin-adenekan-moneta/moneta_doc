@@ -4,9 +4,9 @@ Initiates a Debit Instruction Using the generated code and Reference on a User A
 
 For Disbursement/Payout, the beneficiary\_account\_number and destination\_bank\_code are required.
 
-## Create a new user
+##
 
-<mark style="color:green;">`POST`</mark> `/v2/debit-instruction/debit`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/debit`
 
 
 
@@ -14,12 +14,12 @@ For Disbursement/Payout, the beneficiary\_account\_number and destination\_bank\
 
 | Name              | Value              |
 | ----------------- | ------------------ |
-| Content-Type      | `application/json` |
+| `Content-Type`    | `application/json` |
 | `X-Service-Token` | `Bearer <token>`   |
 
 **Body**
 
-<table><thead><tr><th width="189">Name</th><th width="106">Type</th><th width="113">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>mandate_ref</code></td><td>string</td><td>required</td><td>The reference ID of the mandate. This is Required together with the mandate_code field. This is not required when Disbursement is set to 'true'. Example: <code>MT-JJF4342JF</code></td></tr><tr><td><code>mandate_code</code></td><td>string</td><td>required</td><td>The code of the mandate. This is Required for scenarios like collections or money transfer from an Account. This is not required when Disbursement is set to 'true'. Example: <code>RC/1234/567890</code></td></tr><tr><td><code>amount</code></td><td>string</td><td>optional</td><td>The amount to be debited. Example: <code>1000</code></td></tr><tr><td><code>beneficiary_account_number</code>   </td><td>string</td><td>optional</td><td>optional string The account number of the beneficiary. Example: <code>0000000000</code></td></tr><tr><td><code>destination_bank_code</code>   </td><td>string</td><td>optional</td><td> The bank code of the beneficiary bank. Example: <code>000000</code></td></tr><tr><td><code>name_enquiry_id</code>   </td><td>integer</td><td>optional</td><td>optional The ID of the name enquiry associated with the mandate. Example: <code>1</code></td></tr><tr><td>disbursement</td><td>boolean</td><td>optional</td><td>A boolean indicating whether the mandate is for disbursement or not. This is required for scenarios like salary payment of Transfers from a Particular Pool Account to any desired Destination Account Example: <code>true</code></td></tr></tbody></table>
+<table><thead><tr><th width="189">Name</th><th width="106">Type</th><th width="113">Field</th><th>Description</th></tr></thead><tbody><tr><td><code>mandate_ref</code></td><td>string</td><td>required</td><td>The reference ID of the mandate. This is Required together with the mandate_code field. This is not required when Disbursement is set to 'true'. Example: <code>MT-JJF4342JF</code></td></tr><tr><td><code>mandate_code</code></td><td>string</td><td>required</td><td>The code of the mandate. This is Required for scenarios like collections or money transfer from an Account. This is not required when Disbursement is set to 'true'. Example: <code>RC/1234/567890</code></td></tr><tr><td><code>amount</code></td><td>string</td><td>optional</td><td>The amount to be debited. Example: <code>1000</code></td></tr><tr><td><code>beneficiary_account_number</code>   </td><td>string</td><td>optional</td><td>optional string The account number of the beneficiary. Example: <code>0000000000</code></td></tr><tr><td><code>destination_bank_code</code>   </td><td>string</td><td>optional</td><td> The bank code of the beneficiary bank. Example: <code>000000</code></td></tr><tr><td><code>name_enquiry_id</code>   </td><td>integer</td><td>optional</td><td>optional The ID of the name enquiry associated with the mandate. Example: <code>1</code></td></tr><tr><td>disbursement</td><td>boolean</td><td>optional</td><td>A boolean indicating whether the mandate is for disbursement or not. This is required for scenarios like salary payment of Transfers from a Particular Pool Account to any desired Destination Account Example: <code>true</code></td></tr></tbody></table>
 
 Example
 

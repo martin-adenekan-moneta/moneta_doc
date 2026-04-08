@@ -8,7 +8,7 @@ This method fetches mandates for the currently authenticated user, using optiona
 
 ## Create Debit Instruction
 
-<mark style="color:green;">`POST`</mark> `/debit-instruction/create`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/debit-instruction/create`
 
 
 
@@ -16,7 +16,7 @@ This method fetches mandates for the currently authenticated user, using optiona
 
 | Name              | Value              |
 | ----------------- | ------------------ |
-| Content-Type      | `application/json` |
+| `Content-Type`    | `application/json` |
 | `X-Service-Token` | `Bearer <token>`   |
 
 **Body**
