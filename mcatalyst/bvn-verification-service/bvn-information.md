@@ -10,7 +10,7 @@ All API requests must include your authentication token in the header. See the G
 
 
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v1/kyc/bvn`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v1/kyc/bvn`
 
 #### Path Parameters
 
@@ -21,10 +21,21 @@ All API requests must include your authentication token in the header. See the G
 #### Request Example
 
 {% tabs %}
+{% tab title="Curl" %}
+```bash
+curl --location --request GET '{{baseUrl}}/v1/kyc/bvn/...............' \
+--header 'Authorization: Bearer ...................' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "bvn": ".................."
+}'
+```
+{% endtab %}
+
 {% tab title="JavaScript" %}
 ```javascript
 const bvnNumber = '...............';
-const url = `https://api.moneta.ng/api/v1/kyc/bvn/`+bvnNumber;
+const url = baseUrl+`/v1/kyc/bvn/`+bvnNumber;
 const token = '...................';
 
 fetch(url, {
@@ -42,13 +53,70 @@ fetch(url, {
 ```
 {% endtab %}
 
-{% tab title="Python" %}
-```python
+{% tab title="PHP" %}
+```php
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+$client = new Client();
+
+$bvnNumber = '...............';
+$url = $baseUrl."/v1/kyc/bvn/" . $bvnNumber;
+$token = '...................';
+
+try {
+    $response = $client->request('GET', $url, [
+        'headers' => [
+            'Authorization' => 'Bearer ' . $token,
+            'Accept'        => 'application/json',
+        ],
+        'json' => [
+            'bvn' => '..................'
+        ]
+    ]);
+
+    $data = json_decode($response->getBody(), true);
+    print_r($data);
+
+} catch (RequestException $e) {
+    echo "Error: " . $e->getMessage();
+}
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
+{% tab title="Python" %}
+```python
+import requests
+
+bvn_number = '...............'
+base_url = 'https://api.example.com'
+url = f"{base_url}/v1/kyc/bvn/{bvn_number}"
+token = '...................'
+
+# Request headers
+headers = {
+    'Authorization': f'Bearer {token}',
+    'Content-Type': 'application/json'
+}
+
+# Request body
+payload = {
+    'bvn': '..................'
+}
+
+try:
+    # Most APIs don't use a body for GET, but if yours does:
+    response = requests.get(url, headers=headers, json=payload)
+    
+    # Raise an exception for 4XX or 5XX status codes
+    response.raise_for_status()
+    
+    # Parse JSON response
+    data = response.json()
+    print(data)
+
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
 ```
 {% endtab %}
 {% endtabs %}

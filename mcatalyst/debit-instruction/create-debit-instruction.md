@@ -8,7 +8,7 @@ This method fetches mandates for the currently authenticated user, using optiona
 
 ## Create Debit Instruction
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/debit-instruction/create`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/debit-instruction/create`
 
 
 
@@ -25,8 +25,8 @@ This method fetches mandates for the currently authenticated user, using optiona
 | ------------------------ | ------- | ----------------------------------------------------------------------------- |
 | `mandate_type`           | number  | The type of mandate (1 for Debit Instruction, 2 for Paper Debit Instruction). |
 | `customer_phone`         | string  | Customer Phone                                                                |
-| `customer_account_no`    | string  |                                                                               |
-| `bank_code`              | number/ |                                                                               |
+| `customer_account_no`    | string  | Customer account Number                                                       |
+| `bank_code`              | number/ | Bank Code from Moneta [ list of banks](../list-of-banks.md)                   |
 
 Examples
 
@@ -34,8 +34,8 @@ Examples
 {% tab title="Curl" %}
 ```bash
 curl --request POST \
-    "https://api.moneta.ng/api/v2/debit-instruction/create" \
-    --header "X-Service-Token: 6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d" \
+    "baseUrl/v2/debit-instruction/create" \
+    --header "X-Service-Token: ............................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -68,7 +68,7 @@ const createMonetaMandate = async (customerData) => {
     
     // 1. Setup Headers
     const headers = {
-        "X-Service-Token": ".........", // Keep this in .env for production!
+        "X-Service-Token": "..................", // Keep this in .env for production!
         "Content-Type": "application/json",
         "Accept": "application/json",
     };
@@ -117,12 +117,16 @@ const myMandate = {
 ```
 {% endtab %}
 
-{% tab title="Php" %}
-
+{% tab title="PHP" %}
+```php
+// Some code
+```
 {% endtab %}
 
 {% tab title="Laravel" %}
-
+```php
+// Some code
+```
 {% endtab %}
 
 {% tab title="Python" %}

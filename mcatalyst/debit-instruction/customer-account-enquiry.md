@@ -4,7 +4,7 @@ This Endpoint Allows our merchants & clients to validate a Customer Account Numb
 
 ## Account Name Enquiry
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/account/name-enquiry`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/account/name-enquiry`
 
 
 
@@ -29,7 +29,7 @@ This Endpoint Allows our merchants & clients to validate a Customer Account Numb
 {% tab title="Curl" %}
 ```bash
 curl --request POST \
-    "https://api.moneta.ng/api/v2/debit-instruction/account/name-enquiry" \
+    "baseUrl/v2/debit-instruction/account/name-enquiry" \
     --header "X-Service-Token: ......................................." \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -44,7 +44,7 @@ curl --request POST \
 {% tab title="Javascript" %}
 ```javascript
 const url = new URL(
-    "https://api.moneta.ng/api/v2/debit-instruction/account/name-enquiry"
+    baseUrl+"/v2/debit-instruction/account/name-enquiry"
 );
 
 const headers = {
@@ -70,7 +70,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/account/name-enquiry';
+$url = $baseUrl.'/v2/debit-instruction/account/name-enquiry';
 $response = $client->post(
     $url,
     [
@@ -96,7 +96,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/account/name-enquiry'
+url = baseUrl+'/v2/debit-instruction/account/name-enquiry'
 payload = {
     "bvn": "...........",
     "account_number": "...............",

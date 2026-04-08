@@ -4,7 +4,7 @@ This endpoint is used to retrieve a list of all debit-Instruction Transaction fo
 
 ## All Transaction
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/get/transactions`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/get/transactions`
 
 
 
@@ -25,7 +25,7 @@ This endpoint is used to retrieve a list of all debit-Instruction Transaction fo
 {% tab title="Curl" %}
 ```bash
 curl --request GET \
-    --get "https://api.moneta.ng/api/v2/debit-instruction/get/transactions?date_from=2022-01-01&date_to=2022-01-31" \
+    --get "baseUrl/v2/debit-instruction/get/transactions?date_from=2022-01-01&date_to=2022-01-31" \
     --header "X-Service-Token: ..........................." \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
@@ -35,7 +35,7 @@ curl --request GET \
 {% tab title="Javascript" %}
 ```javascript
 const url = new URL(
-    "https://api.moneta.ng/api/v2/debit-instruction/all"
+    baseUrl+"/v2/debit-instruction/all"
 );
 
 const params = {
@@ -61,7 +61,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/all';
+$url = $baseUrl.'/v2/debit-instruction/all';
 $response = $client->get(
     $url,
     [
@@ -86,7 +86,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/all'
+url = baseUrl+'/v2/debit-instruction/all'
 params = {
   'date_from': '',
   'date_to': '',

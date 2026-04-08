@@ -4,7 +4,7 @@ Allows Clients to Re-Query a Debit Instruction Transaction status.
 
 ## All Transaction
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/transaction_requery`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/transaction_requery`
 
 
 
@@ -25,7 +25,7 @@ Allows Clients to Re-Query a Debit Instruction Transaction status.
 {% tab title="Curl" %}
 ```bash
 curl --request POST \
-    "https://api.moneta.ng/api/v2/debit-instruction/transaction_requery" \
+    "baseUrl/v2/debit-instruction/transaction_requery" \
     --header "X-Service-Token: ......................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -41,7 +41,7 @@ curl --request POST \
 {% tab title="Javascript" %}
 ```javascript
 const url = new URL(
-    "https://api.moneta.ng/api/v2/debit-instruction/transaction_requery"
+    baseUrl+"/v2/debit-instruction/transaction_requery"
 );
 
 const headers = {
@@ -68,7 +68,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/transaction_requery';
+$url = $baseUrl.'/v2/debit-instruction/transaction_requery';
 $response = $client->post(
     $url,
     [
@@ -95,7 +95,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/transaction_requery'
+url = baseUrl+'/v2/debit-instruction/transaction_requery'
 payload = {
     "mandate_ref": "MT-JJF4342JF",
     "mandate_code": "RC\/1234\/567890",

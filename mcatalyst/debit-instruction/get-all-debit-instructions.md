@@ -4,7 +4,7 @@ This endpoint fetches all debit instructions
 
 ## Account Name Enquiry
 
-<mark style="color:green;">`POST`</mark> `/v2/debit-instruction/all`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/all`
 
 
 
@@ -25,7 +25,7 @@ This endpoint fetches all debit instructions
 {% tab title="Curl" %}
 ```bash
 curl --request GET \
-    --get "https://api.moneta.ng/api/v2/debit-instruction/all?date_from=consequatur&date_to=consequatur" \
+    --get "baseUrl/v2/debit-instruction/all?date_from=consequatur&date_to=consequatur" \
     --header "X-Service-Token: ............................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
@@ -35,12 +35,12 @@ curl --request GET \
 {% tab title="Javascript" %}
 ```javascript
 const url = new URL(
-    "https://api.moneta.ng/api/v2/debit-instruction/all"
+    baseUrl+"/v2/debit-instruction/all"
 );
 
 const params = {
-    "date_from": "consequatur",
-    "date_to": "consequatur",
+    "date_from": "........",
+    "date_to": ".........",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -61,7 +61,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/all';
+$url = $baseUrl.'/v2/debit-instruction/all';
 $response = $client->get(
     $url,
     [
@@ -71,8 +71,8 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'date_from' => 'consequatur',
-            'date_to' => 'consequatur',
+            'date_from' => '...........',
+            'date_to' => '...........',
         ],
     ]
 );
@@ -86,10 +86,10 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/all'
+url = baseUrl+'/v2/debit-instruction/all'
 params = {
-  'date_from': 'consequatur',
-  'date_to': 'consequatur',
+  'date_from': '..........',
+  'date_to': '..............',
 }
 headers = {
   'X-Service-Token': '....................................',

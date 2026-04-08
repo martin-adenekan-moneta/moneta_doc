@@ -28,7 +28,7 @@ All API requests must include your authentication token in the header. See the G
 
 
 
-<mark style="color:green;">`POST`</mark>   `{{baseUrl}}/v1/kyc/bvn/verify`
+<mark style="color:green;">`POST`</mark>   `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v1/kyc/bvn/verify`
 
 #### Request Parameters
 
@@ -43,10 +43,25 @@ All API requests must include your authentication token in the header. See the G
 #### Example
 
 {% tabs %}
+{% tab title="Curl" %}
+```bash
+curl -X POST "{{baseUrl}}/v1/kyc/verify" \
+     -H "Authorization: Bearer ........................." \
+     -H "Content-Type: application/json" \
+     -d '{
+        "bvn": "22222222222",
+        "first_name": "John",
+        "last_name": "Doe",
+        "account_number": "00012345678",
+        "bank_code": "000"
+     }'
+```
+{% endtab %}
+
 {% tab title="JavaScript" %}
 ```javascript
-const url = 'https://api.moneta.ng/api/v1/kyc/bvn/verify';
-const token = 'YOUR_AUTH_TOKEN';
+const url = '{{baseUrl}}/v1/kyc/bvn/verify';
+const token = '.........................';
 
 fetch(url, {
   method: 'POST',
@@ -69,20 +84,59 @@ fetch(url, {
 {% endtab %}
 
 {% tab title="PHP" %}
-```
-// Some code
+```php
+use GuzzleHttp\Client;
+
+$client = new Client();
+$token = '.........................';
+$url = $baseUrl.'/v1/kyc/verify';
+
+$response = $client->post($url, [
+    'headers' => [
+        'Authorization' => 'Bearer ' . $token,
+        'Accept'        => 'application/json',
+    ],
+    'json' => [
+        'bvn'            => '22222222222',
+        'first_name'     => 'John',
+        'last_name'      => 'Doe',
+        'account_number' => '00012345678',
+        'bank_code'      => '000',
+    ]
+]);
+
+$data = json_decode($response->getBody(), true);
+print_r($data);
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
-```
-{% endtab %}
+import requests
 
-{% tab title="Ruby" %}
-```ruby
-message = "hello world"
-puts message
+url = baseUrl+"/v1/kyc/verify"
+token = "........................."
+
+headers = {
+    "Authorization": f"Bearer {token}",
+    "Content-Type": "application/json"
+}
+
+payload = {
+    "bvn": "22222222222",
+    "first_name": "John",
+    "last_name": "Doe",
+    "account_number": "00012345678",
+    "bank_code": "000"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+if response.status_code == 200:
+    print(response.json())
+else:
+    print(f"Failed with status: {response.status_code}")
+    print(response.text)
 ```
 {% endtab %}
 {% endtabs %}
@@ -91,9 +145,9 @@ puts message
 
 #### Response Format
 
-Success Response
-
-```json
+{% tabs %}
+{% tab title="200" %}
+```javascript
 {
   "status": true,
   "message": "Success",
@@ -110,10 +164,10 @@ Success Response
   "statusCode": 200
 }
 ```
+{% endtab %}
 
-**Error Response**
-
-```json
+{% tab title="400" %}
+```python
 {
   "status": "error",
   "message": "BVN verification failed",
@@ -123,5 +177,7 @@ Success Response
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ####

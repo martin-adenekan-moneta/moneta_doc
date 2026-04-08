@@ -1,4 +1,4 @@
-# BVN Verification System
+# BVN Verification Service
 
 This endpoints allows you verify user Bank Verificaiton Number (BVN) information for identify confirmation. Before going forward, create an onboard request to the onboard endpoint to verify user account before going forward.
 
@@ -8,7 +8,7 @@ Use this endpoint before proceeding with a full BVN verification to save on API 
 
 ## BVN setup
 
-<mark style="color:green;">`POST`</mark> \{{baseUrl\}}`/bvn/bvn_onboard`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl}`](../#base-url-for-mcatalyst)`}/bvn/bvn_onboard`
 
 \<onboard a customer's BVN>
 
@@ -23,12 +23,12 @@ Use this endpoint before proceeding with a full BVN verification to save on API 
 
 Please note: every field is required&#x20;
 
-| Name                | Type   | Description                                                     |
-| ------------------- | ------ | --------------------------------------------------------------- |
-| `scope`             | string | The scope of this request e.g accounts                          |
-| `channel_code`      | string | The code for the channel through which the request is generated |
-| customer\_reference | string | The reference for the customer                                  |
-| bvn                 | string | The BVN of the customer                                         |
+| Name                 | Type   | Description                                                     |
+| -------------------- | ------ | --------------------------------------------------------------- |
+| `scope`              | string | The scope of this request e.g accounts                          |
+| `channel_code`       | string | The code for the channel through which the request is generated |
+| `customer_reference` | string | The reference for the customer                                  |
+| `bvn`                | string | The BVN of the customer                                         |
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -65,7 +65,7 @@ const validateBVN = async (bvn) => {
 ```
 {% endtab %}
 
-{% tab title="Php" %}
+{% tab title="PHP" %}
 ```php
 function fetchBvnDataCurl(string $url, string $serviceToken, array $payload): ?array
 {
@@ -109,7 +109,7 @@ function fetchBvnDataCurl(string $url, string $serviceToken, array $payload): ?a
 
 // --- Example Usage ---
 $BVN_URL = 'https://api.example.com/bvn';
-$SERVICE_TOKEN = 'your_secure_token_123';
+$SERVICE_TOKEN = '.......................';
 $PAYLOAD = [
     "scope" => "accounts",
     "channel_code" => "customer_web_portal",
@@ -119,7 +119,7 @@ $PAYLOAD = [
 
 // $result = fetchBvnDataCurl($BVN_URL, $SERVICE_TOKEN, $PAYLOAD);
 // print_r($result);
-?> 
+
 ```
 {% endtab %}
 
@@ -237,7 +237,7 @@ def fetch_bvn_data(url: str, service_token: str, payload: Dict[str, Any]) -> Opt
         return None
 
 # --- Example Usage ---
-BVN_URL = 'https://api.example.com/bvn'
+BVN_URL = {{baseUrl}}
 SERVICE_TOKEN = 'your_secure_token_123'
 PAYLOAD = {
     "scope": "accounts",
@@ -306,8 +306,8 @@ public class ApiClient {
 /*
 public class Main {
     public static void main(String[] args) {
-        String BVN_URL = "https://api.example.com/bvn";
-        String SERVICE_TOKEN = "your_secure_token_123";
+        String BVN_URL = "baseUrl";
+        String SERVICE_TOKEN = ".......................";
         // In a real application, you'd serialize a Java object to this string
         String PAYLOAD_JSON = """
             {

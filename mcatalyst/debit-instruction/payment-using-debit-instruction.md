@@ -6,7 +6,7 @@ For Disbursement/Payout, the beneficiary\_account\_number and destination\_bank\
 
 ##
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/debit`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/debit`
 
 
 
@@ -19,7 +19,7 @@ For Disbursement/Payout, the beneficiary\_account\_number and destination\_bank\
 
 **Body**
 
-<table><thead><tr><th width="189">Name</th><th width="106">Type</th><th width="113">Field</th><th>Description</th></tr></thead><tbody><tr><td><code>mandate_ref</code></td><td>string</td><td>required</td><td>The reference ID of the mandate. This is Required together with the mandate_code field. This is not required when Disbursement is set to 'true'. Example: <code>MT-JJF4342JF</code></td></tr><tr><td><code>mandate_code</code></td><td>string</td><td>required</td><td>The code of the mandate. This is Required for scenarios like collections or money transfer from an Account. This is not required when Disbursement is set to 'true'. Example: <code>RC/1234/567890</code></td></tr><tr><td><code>amount</code></td><td>string</td><td>optional</td><td>The amount to be debited. Example: <code>1000</code></td></tr><tr><td><code>beneficiary_account_number</code>   </td><td>string</td><td>optional</td><td>optional string The account number of the beneficiary. Example: <code>0000000000</code></td></tr><tr><td><code>destination_bank_code</code>   </td><td>string</td><td>optional</td><td> The bank code of the beneficiary bank. Example: <code>000000</code></td></tr><tr><td><code>name_enquiry_id</code>   </td><td>integer</td><td>optional</td><td>optional The ID of the name enquiry associated with the mandate. Example: <code>1</code></td></tr><tr><td>disbursement</td><td>boolean</td><td>optional</td><td>A boolean indicating whether the mandate is for disbursement or not. This is required for scenarios like salary payment of Transfers from a Particular Pool Account to any desired Destination Account Example: <code>true</code></td></tr></tbody></table>
+<table><thead><tr><th width="189">Name</th><th width="106">Type</th><th width="113">Field</th><th>Description</th></tr></thead><tbody><tr><td><code>mandate_ref</code></td><td>string</td><td>required</td><td>The reference ID of the mandate. This is Required together with the mandate_code field. This is not required when Disbursement is set to 'true'. Example: <code>MT-JJF4342JF</code></td></tr><tr><td><code>mandate_code</code></td><td>string</td><td>required</td><td>The code of the mandate. This is Required for scenarios like collections or money transfer from an Account. This is not required when Disbursement is set to 'true'. Example: <code>RC/1234/567890</code></td></tr><tr><td><code>amount</code></td><td>string</td><td>optional</td><td>The amount to be debited. Example: <code>1000</code></td></tr><tr><td><code>beneficiary_account_number</code>   </td><td>string</td><td>optional</td><td>optional string The account number of the beneficiary. Example: <code>0000000000</code></td></tr><tr><td><code>destination_bank_code</code>   </td><td>string</td><td>optional</td><td> The bank code of the beneficiary bank. Example: <code>000000</code></td></tr><tr><td><code>name_enquiry_id</code>   </td><td>integer</td><td>optional</td><td>optional The ID of the name enquiry associated with the mandate. Example: <code>1</code></td></tr><tr><td><code>disbursement</code></td><td>boolean</td><td>optional</td><td>A boolean indicating whether the mandate is for disbursement or not. This is required for scenarios like salary payment of Transfers from a Particular Pool Account to any desired Destination Account Example: <code>true</code></td></tr></tbody></table>
 
 Example
 
@@ -27,8 +27,8 @@ Example
 {% tab title="Curl" %}
 ```bash
 curl --request POST \
-    "https://api.moneta.ng/api/v2/debit-instruction/debit" \
-    --header "X-Service-Token: 6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d" \
+    "baseUrl/v2/debit-instruction/debit" \
+    --header "X-Service-Token: ......................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -46,11 +46,11 @@ curl --request POST \
 {% tab title="Javascript" %}
 ```javascript
 const url = new URL(
-    "https://api.moneta.ng/api/v2/debit-instruction/debit"
+    baseUrl+"/v2/debit-instruction/debit"
 );
 
 const headers = {
-    "X-Service-Token": "6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d",
+    "X-Service-Token": ".................................",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -76,12 +76,12 @@ fetch(url, {
 {% tab title="Php" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/debit';
+$url = $baseurl.'/v2/debit-instruction/debit';
 $response = $client->post(
     $url,
     [
         'headers' => [
-            'X-Service-Token' => '6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d',
+            'X-Service-Token' => '.........................',
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ],

@@ -4,7 +4,7 @@ This endpoint retrieves the status from debit instruction
 
 ## Get Details
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/debit-instruction/details`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/details`
 
 
 
@@ -49,12 +49,12 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/details';
+$url = baseUrl.'/v2/debit-instruction/details';
 $response = $client->post(
     $url,
     [
         'headers' => [
-            'X-Service-Token' => '6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d',
+            'X-Service-Token' => '.......................................',
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ],
@@ -74,13 +74,13 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/details'
+url = baseUrl+'/v2/debit-instruction/details'
 payload = {
     "mandate_ref": "MT-JJF4342JF",
     "mandate_code": "RC\/1234\/567890"
 }
 headers = {
-  'X-Service-Token': '6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d',
+  'X-Service-Token': '........................................',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -115,7 +115,7 @@ public class MonetaClient {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(baseUrl))
-                    .header("X-Service-Token", "6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d")
+                    .header("X-Service-Token", ".................................")
                     .header("Content-Type", "application/json")
                     .header("Accept", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(jsonBody))

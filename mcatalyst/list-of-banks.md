@@ -4,7 +4,7 @@ This endpoint retrieves the list of avialable banks&#x20;
 
 ##
 
-<mark style="color:green;">`POST`</mark> `/v2/get-banks`
+<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./#base-url-for-mcatalyst)`/v2/get-banks`
 
 &#x20;Remember to include your X-Service-Token header as [shown here](./)
 
@@ -22,28 +22,26 @@ Body
 ```bash
 
 curl --request POST \
-    "https://api.moneta.ng/api/v2/bvn/account_identity_check" \
-    --header "X-Service-Token: 6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d" \
+    "{{baseUrl}}/v2/bvn/account_identity_check" \
+    --header "X-Service-Token: ................................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"bvn\": \"consequatur\",
-    \"account_number\": \"consequatur\",
-    \"institution_code\": \"consequatur\",
-    \"first_name\": \"consequatur\",
-    \"last_name\": \"consequatur\"
+    \"bvn\": \"............\",
+    \"account_number\": \"....................\",
+    \"institution_code\": \"..............\",
+    \"first_name\": \"................\",
+    \"last_name\": \"................\"
 }"
 ```
 {% endtab %}
 
 {% tab title="JavaScript" %}
 ```javascript
-const url = new URL(
-    "https://api.moneta.ng/api/v2/get-banks"
-);
+const url = new URL(baseUrl+"/v2/get-banks");
 
 const headers = {
-    "X-Service-Token": "6337|0IjdE3othWKaECr2GL0ynUWGlmsdFsYI90bqyn7Md2cc154d",
+    "X-Service-Token": "..................................",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -58,12 +56,12 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/get-banks';
+$url = baseUrl+'/v2/get-banks';
 $response = $client->get(
     $url,
     [
         'headers' => [
-            'X-Service-Token' => '.....',
+            'X-Service-Token' => '..............',
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ],
@@ -76,15 +74,18 @@ print_r(json_decode((string) $body));
 
 {% tab title="Python" %}
 ```python
-message = "hello world"
-print(message)
-```
-{% endtab %}
+import requests
+import json
 
-{% tab title="Ruby" %}
-```ruby
-message = "hello world"
-puts message
+url = baseUrl+'/v2/get-banks'
+headers = {
+  'X-Service-Token': '.................................',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
 ```
 {% endtab %}
 {% endtabs %}

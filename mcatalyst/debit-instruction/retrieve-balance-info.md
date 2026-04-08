@@ -4,7 +4,7 @@ This endpoint checks the balance of a Debit Instruction using the mandate\_ ref 
 
 ## Debit Instruction Balance Information
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/debit-instruction/account/balance-enquiry`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../)`}}/v2/debit-instruction/account/balance-enquiry`
 
 
 
@@ -28,7 +28,7 @@ This endpoint checks the balance of a Debit Instruction using the mandate\_ ref 
 {% tab title="Curl" %}
 ```bash
 curl --request POST \
-    "https://api.moneta.ng/api/v2/debit-instruction/account/balance-enquiry" \
+    "baseUrl/v2/debit-instruction/account/balance-enquiry" \
     --header "X-Service-Token: ......................................." \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -42,7 +42,7 @@ curl --request POST \
 {% tab title="Javascript" %}
 ```javascript
 const url = new URL(
-    "https://api.moneta.ng/api/v2/debit-instruction/account/balance-enquiry"
+    baseUrl+"/v2/debit-instruction/account/balance-enquiry"
 );
 
 const headers = {
@@ -67,7 +67,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = 'https://api.moneta.ng/api/v2/debit-instruction/account/balance-enquiry';
+$url = $baseUrl.'/v2/debit-instruction/account/balance-enquiry';
 $response = $client->post(
     $url,
     [
@@ -92,7 +92,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/account/balance-enquiry'
+url = baseUrl+'/v2/debit-instruction/account/balance-enquiry'
 payload = {
     "mandate_ref": "...........",
     "mandate_code": "..............."

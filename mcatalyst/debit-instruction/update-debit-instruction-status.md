@@ -6,7 +6,7 @@ This endpoint is used to suspend or activate a Debit Instruction.
 
 ## Debit Instruction Status
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/debit-instruction/disable-enable`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/debit-instruction/disable-enable`
 
 
 
@@ -52,7 +52,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = baseUrl;
+$url = {{baseUrl}};
 $response = $client->post(
     $url,
     [
@@ -79,7 +79,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'https://api.moneta.ng/api/v2/debit-instruction/disable-enable'
+url = baseUrl+'/v2/debit-instruction/disable-enable'
 payload = {
     "mandate_ref": "MT-JJF4342JF",
     "mandate_code": "RC\/1234\/567890",
@@ -109,7 +109,7 @@ import com.google.gson.Gson; // External Library: com.google.code.gson
 
 public class MonetaMandateManager {
     public static void main(String[] args) {
-        String url = "https://api.moneta.ng/api/v2/debit-instruction/disable-enable";
+        String url = baseUrl+"/v2/debit-instruction/disable-enable";
         String token = "........"; // Replace with your actual token
 
         try {
