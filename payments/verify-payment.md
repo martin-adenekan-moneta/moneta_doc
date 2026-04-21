@@ -2,7 +2,7 @@
 
 ## Payment / Transaction Verification
 
-<mark style="color:green;">`POST`</mark>  `{{baseUrl}}/`transaction/charge/verify/reference
+<mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./#overview)`}}/`transaction/charge/verify/reference
 
 \<Verify Payment status>
 

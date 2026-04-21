@@ -217,7 +217,7 @@ Endpoint URL
 
 <mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./)`}}/transaction/initialize`
 
-\<Generate payment link for receiving payment from client using card, bank transfer or ussd>
+
 
 **Headers**
 

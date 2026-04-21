@@ -15,7 +15,7 @@ Visit: [https://merchant.moneta.ng/account/profile-settings/bank-accounts](https
 
 Next visit the API keys and settings page to get your API credentials.
 
-&#x20;Once you have your **Client ID and Client Secret, Service Keys** (from either the Staging or Production environment delivered to your email), and **MAC Key** on your API keys page,  you can start testing or receiving payment .
+&#x20;Once you have your **Client ID, Client Secret, Service Keys** (from either the Staging or Production environment delivered to your email), and **MAC Key** on your API keys page,  you can start testing or receiving payment .
 
 Base URL for Payment
 

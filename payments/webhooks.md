@@ -24,7 +24,7 @@ The Moneta Webhook System allows you to receive real-time notifications about ev
 
 **1. Webhook URLs**
 
-* **URL:** Your webhook url is dependent on the environment you are using.&#x20;
+* **URL:** Your webhook Url is dependent on the environment you are using.&#x20;
 * **Requirements**:
   * Must be a valid HTTPS URL (HTTP allowed for development only, localhost is not allowed for webhook)
   * Must be publicly accessible
@@ -613,9 +613,9 @@ public class MonetaWebhookController {
 5. **Implement circuit breakers** - Prevent cascading failures
 
 {% hint style="info" %}
-
-
 #### Security
+
+
 
 1. **Always verify signatures** - Never process webhooks without signature verification
 2. **Use HTTPS** - Always use HTTPS URLs for production webhooks
