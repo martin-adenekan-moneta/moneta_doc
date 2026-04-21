@@ -6,7 +6,9 @@ icon: lock
 
 
 
-Before you can access the payment APIs or any other services , you are expected to have a service token. To generate a service token (also known as service key), create a base64 hash string  using your client\_id, client\_secret, and **service keys** for the service you want to access e.g payment _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_&#x20;
+Before you can access the payment API endpoints or any other services , you are expected to have a service token.&#x20;
+
+To generate a service token (also known as service key), create a base64 hash string  using your client\_id, client\_secret, and **service key** for the current service you want to access e.g. payment _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_&#x20;
 
 {% tabs %}
 {% tab title="JavaScript" %}

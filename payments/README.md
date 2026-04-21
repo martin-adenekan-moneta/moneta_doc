@@ -7,17 +7,17 @@ icon: box-dollar
 
 ### Overview
 
-You are expected to complete your account setup by adding a **settlement bank account** for your payout.
+You are expected to complete your account  setup & KYC steps to setup your settlement account.
 
-To setup the account your money will be sent to when using our system, please visit the **Account** tab on your settings page and add your default settlement account.&#x20;
+To setup the settlement account where all funds will be sent to by visiting the **Account** tab on your settings page.&#x20;
 
 Visit: [https://merchant.moneta.ng/account/profile-settings/bank-accounts](https://merchant.moneta.ng/account/profile-settings/bank-accounts)
 
 Next visit the API keys and settings page to get your API credentials.
 
-&#x20;Once you have your **Client ID and Client Secret, Service Keys** (from either the Staging or Production environment delivered to your email), and **MAC Key** on your api keys page,  you can start testing or recieving payment .
+&#x20;Once you have your **Client ID and Client Secret, Service Keys** (from either the Staging or Production environment delivered to your email), and **MAC Key** on your API keys page,  you can start testing or receiving payment .
 
-Base URL for Paymnent
+Base URL for Payment
 
 <table><thead><tr><th width="220.61968994140625">Payment Environment</th><th width="303.127685546875">Base Url</th><th>Purpose</th></tr></thead><tbody><tr><td>Staging</td><td>https://api-staging.moneta.ng/api</td><td>Development &#x26; Testing</td></tr><tr><td>Production</td><td>https://api.moneta.ng/api/v2</td><td>Live Transactions (Real Money)</td></tr></tbody></table>
 
