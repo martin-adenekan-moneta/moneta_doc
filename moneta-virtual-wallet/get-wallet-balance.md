@@ -36,21 +36,43 @@ Handle potential error responses, especially authentication failures, by prompti
 
 #### Request Example
 
-bashCopy
-
+{% tabs %}
+{% tab title="Curl" %}
 ```bash
-curl --location 'https://api.moneta.ng/api/v2/wallet/balance' \
---header 'Accept: application/json' \
+'Accept: application/json' \
 --header 'X-Client-Id: {{client_Id}}' \
 --header 'X-Client-Secret: {{client_secret}}' \
 --header 'X-Merchant-Token: {{merchant_token}}' \
 --header 'X-Service-Token: {{service_token}}'
 ```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const message = "hello world";
+console.log(message);
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+message = "hello world"
+print(message)
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+message = "hello world"
+puts message
+```
+{% endtab %}
+{% endtabs %}
 
 #### Response Format
 
-Success Response
-
+{% tabs %}
+{% tab title="200" %}
 ```json
 {
   "message": "Wallet Balance",
@@ -72,9 +94,9 @@ Success Response
   }
 }
 ```
+{% endtab %}
 
-**Error Response**
-
+{% tab title="404" %}
 ```json
 {
   "status": "error",
@@ -88,17 +110,9 @@ Success Response
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 #### Response Properties
 
-| Parameter                 | Type   | Required | Description                                              |
-| ------------------------- | ------ | -------- | -------------------------------------------------------- |
-| id                        | number | Required | Unique identifier of the merchant                        |
-| client\_id                | number | Required | Identifier of the associated client account              |
-| merchant\_name            | string | Required | Name of the merchant                                     |
-| merchant\_email           | string | Required | Email address of the merchant                            |
-| merchant\_phone\_number   | string | Required | Contact phone number of the merchant                     |
-| status                    | string | Required | Current status of the merchant account (active/inactive) |
-| wallet.available\_balance | number | Required | Current available balance in the smallest currency unit  |
-| wallet.created\_at        | string | Required | ISO 8601 datetime when the wallet was created            |
-| wallet.updated\_at        | string | Required | ISO 8601 datetime when the wallet was last updated       |
+<table><thead><tr><th width="243">Parameter</th><th>Type</th><th width="114">Required</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>number</td><td>Required</td><td>Unique identifier of the merchant</td></tr><tr><td>client_id</td><td>number</td><td>Required</td><td>Identifier of the associated client account</td></tr><tr><td>merchant_name</td><td>string</td><td>Required</td><td>Name of the merchant</td></tr><tr><td>merchant_email</td><td>string</td><td>Required</td><td>Email address of the merchant</td></tr><tr><td>merchant_phone_number</td><td>string</td><td>Required</td><td>Contact phone number of the merchant</td></tr><tr><td>status</td><td>string</td><td>Required</td><td>Current status of the merchant account (active/inactive)</td></tr><tr><td>wallet.available_balance</td><td>number</td><td>Required</td><td>Current available balance in the smallest currency unit</td></tr><tr><td>wallet.created_at</td><td>string</td><td>Required</td><td>ISO 8601 datetime when the wallet was created</td></tr><tr><td>wallet.updated_at</td><td>string</td><td>Required</td><td>ISO 8601 datetime when the wallet was last updated</td></tr></tbody></table>

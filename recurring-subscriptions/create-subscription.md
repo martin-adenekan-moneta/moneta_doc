@@ -4,7 +4,7 @@ Billing & recurring subscriptions can be created using the provided customer and
 
 ## Create Billing
 
-<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./)`}}/mandate/create`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./)`}}/v2/mandate/create`
 
 \<Create recurring bills and subscription>
 

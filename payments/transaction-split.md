@@ -4,7 +4,7 @@ Transaction splitting enables incoming funds to be separated into sub accounts y
 
 ## Create Transaction split
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/split`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/split`
 
 \<Create splitting rules for how incoming payments should be splitted >
 

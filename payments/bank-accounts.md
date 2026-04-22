@@ -8,7 +8,7 @@ Bank accounts serves as payment collection points for which you can split incomi
 
 ## Create Sub Account
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/subaccount`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#overview)`}}/subaccount`
 
 \<Create a new sub account for funds payment splitting>
 

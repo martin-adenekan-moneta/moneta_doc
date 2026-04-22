@@ -4,7 +4,7 @@
 
 ## Disable/Enable Mandate
 
-<mark style="color:green;">`POST`</mark> `/mandate/disable-enable`
+<mark style="color:green;">`POST`</mark> `/v2/mandate/disable-enable`
 
 
 

@@ -2,7 +2,7 @@
 
 ## All Merchant
 
-<mark style="color:green;">`POST`</mark> `/users`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/v2/mandate/all`
 
 
 

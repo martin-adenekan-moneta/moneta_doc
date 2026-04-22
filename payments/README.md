@@ -17,7 +17,7 @@ Next visit the API keys and settings page to get your API credentials.
 
 &#x20;Once you have your **Client ID, Client Secret, Service Keys** (from either the Staging or Production environment delivered to your email), and **MAC Key** on your API keys page,  you can start testing or receiving payment .
 
-Base URL for Payment
+### Base URL for Payment
 
 <table><thead><tr><th width="220.61968994140625">Payment Environment</th><th width="303.127685546875">Base Url</th><th>Purpose</th></tr></thead><tbody><tr><td>Staging</td><td>https://api-staging.moneta.ng/api</td><td>Development &#x26; Testing</td></tr><tr><td>Production</td><td>https://api.moneta.ng/api/v2</td><td>Live Transactions (Real Money)</td></tr></tbody></table>
 

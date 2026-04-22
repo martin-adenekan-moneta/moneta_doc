@@ -2,7 +2,7 @@
 
 ## Fetch Mandate Details
 
-<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./)`/mandate/details`
+<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./)`/v2/mandate/details`
 
 \<Retrieve details of a mandate by providing the `mandate_code` and `mandate_ref` in the request body.>
 
