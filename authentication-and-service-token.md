@@ -166,6 +166,105 @@ Please ensure that all requests to our API services are coming from your backend
 
 **Body  :** None
 
+**Examples:**
+
+{% tabs %}
+{% tab title="Curl" %}
+```
+curl -X POST "https://api-staging.moneta.ng/api/v2/generate-access-token" \
+     -H "X-Auth-Token: YOUR_HASH_HERE" \
+     -H "Accept: application/json" \
+     -H "Content-Type: application/json"
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const axios = require('axios');
+
+async function generateServiceToken(hash) {
+    const url = "https://api-staging.moneta.ng/api/v2/generate-access-token";
+    
+    try {
+        const response = await axios.post(url, {}, {
+            headers: {
+                'X-Auth-Token': hash,
+                'Accept': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("API Request Failed:", error.response?.data || error.message);
+        throw error;
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Php" %}
+```php
+use Illuminate\Support\Facades\Http;
+
+public function generate_service_token($hash)
+{
+    $url = "https://api-staging.moneta.ng/api/v2/generate-access-token";
+
+    $response = Http::withHeaders([
+        'X-Auth-Token' => $hash,
+        'Accept' => 'application/json',
+    ])->post($url);
+
+    return $response->json();
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+def generate_service_token(hash_token):
+    url = "https://api-staging.moneta.ng/api/v2/generate-access-token"
+    
+    headers = {
+        'X-Auth-Token': hash_token,
+        'Accept': 'application/json'
+    }
+    
+    response = requests.post(url, headers=headers)
+    
+    # Raises an exception for 4XX/5XX errors
+    response.raise_for_status() 
+    
+    return response.json()
+```
+{% endtab %}
+
+{% tab title="Java (spring)" %}
+```java
+import org.springframework.web.client.RestTemplate;
+import org.springframework.http.*;
+import java.util.Map;
+
+public Map<String, Object> generateServiceToken(String hash) {
+    String url = "https://api-staging.moneta.ng/api/v2/generate-access-token";
+    RestTemplate restTemplate = new RestTemplate();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("X-Auth-Token", hash);
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.set("Accept", "application/json");
+
+    HttpEntity<String> entity = new HttpEntity<>(headers);
+
+    ResponseEntity<Map> response = restTemplate.postForEntity(url, entity, Map.class);
+    
+    return response.getBody();
+}
+```
+{% endtab %}
+{% endtabs %}
+
 **Response**
 
 {% tabs %}
