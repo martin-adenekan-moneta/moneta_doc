@@ -171,7 +171,7 @@ Please ensure that all requests to our API services are coming from your backend
 {% tabs %}
 {% tab title="Curl" %}
 ```
-curl -X POST "https://api-staging.moneta.ng/api/v2/generate-access-token" \
+curl -X POST "{{BaseUrl}}/v2/generate-access-token" \
      -H "X-Auth-Token: YOUR_HASH_HERE" \
      -H "Accept: application/json" \
      -H "Content-Type: application/json"
@@ -183,7 +183,7 @@ curl -X POST "https://api-staging.moneta.ng/api/v2/generate-access-token" \
 const axios = require('axios');
 
 async function generateServiceToken(hash) {
-    const url = "https://api-staging.moneta.ng/api/v2/generate-access-token";
+    const url = {{BaseUrl}}/v2/generate-access-token";
     
     try {
         const response = await axios.post(url, {}, {
@@ -207,7 +207,7 @@ use Illuminate\Support\Facades\Http;
 
 public function generate_service_token($hash)
 {
-    $url = "https://api-staging.moneta.ng/api/v2/generate-access-token";
+    $url = "{{BaseUrl}}/v2/generate-access-token";
 
     $response = Http::withHeaders([
         'X-Auth-Token' => $hash,
@@ -224,7 +224,7 @@ public function generate_service_token($hash)
 import requests
 
 def generate_service_token(hash_token):
-    url = "https://api-staging.moneta.ng/api/v2/generate-access-token"
+    url = "{{BaseUrl}}/v2/generate-access-token"
     
     headers = {
         'X-Auth-Token': hash_token,
@@ -247,7 +247,7 @@ import org.springframework.http.*;
 import java.util.Map;
 
 public Map<String, Object> generateServiceToken(String hash) {
-    String url = "https://api-staging.moneta.ng/api/v2/generate-access-token";
+    String url = "{{BaseUrl}}/v2/generate-access-token";
     RestTemplate restTemplate = new RestTemplate();
 
     HttpHeaders headers = new HttpHeaders();
