@@ -24,13 +24,10 @@ Store the reference code from the response for tracking and potential troublesho
 
 #### Request Headers
 
-| Parameter        | Type   | Required | Description                                |
-| ---------------- | ------ | -------- | ------------------------------------------ |
-| Accept           | string | Required | Must be set to 'application/json'          |
-| X-Client-Id      | string | Required | Your API client ID                         |
-| X-Client-Secret  | string | Required | Your API client secret                     |
-| X-Merchant-Token | string | Required | Your merchant token for authentication     |
-| X-Service-Token  | string | Required | Your service-specific authentication token |
+| Parameter       | Type   | Required | Description                                |
+| --------------- | ------ | -------- | ------------------------------------------ |
+| Accept          | string | Required | Must be set to 'application/json'          |
+| X-Service-Token | string | Required | Your service-specific authentication token |
 
 #### Request Parameters
 
@@ -50,8 +47,8 @@ Store the reference code from the response for tracking and potential troublesho
 
 #### Request Example
 
-bash
-
+{% tabs %}
+{% tab title="Curl" %}
 ```bash
 curl --location 'https://api.moneta.ng/api/v2/notification' \
 --header 'Accept: application/json' \
@@ -75,10 +72,113 @@ curl --location 'https://api.moneta.ng/api/v2/notification' \
     "sensitive": false
 }'
 ```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const url = 'https://api.example.com/notify';
+const data = {
+    "notification_type": "email",
+    "template": "messaging",
+    "notification_event": "messaging",
+    "user_details": ["user@example.com"],
+    "attachments": null,
+    "sensitive": false
+};
+
+fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+.then(response => response.json())
+.then(result => console.log('Success:', result))
+.catch(error => console.error('Error:', error));
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+<?php
+$url = 'https://api.example.com/notify';
+$data = [
+    "notification_type" => "email",
+    "template" => "messaging",
+    "notification_event" => "messaging",
+    "user_details" => ["user@example.com"],
+    "attachments" => null,
+    "sensitive" => false
+];
+
+$payload = json_encode($data);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Content-Length: ' . strlen($payload)
+]);
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'Error: ' . curl_error($ch);
+} else {
+    echo 'Response: ' . $response;
+}
+
+curl_close($ch);
+?>
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+url = 'https://api.example.com/notify'
+data = {
+    "notification_type": "email",
+    "template": "messaging",
+    "notification_event": "messaging",
+    "user_details": ["user@example.com"],
+    "attachments": None, # Python uses None for null
+    "sensitive": False   # Python uses capitalized Booleans
+}
+
+try:
+    response = requests.post(url, json=data)
+    response.raise_for_stdio() # Raises an error for bad status codes
+    print("Success:", response.json())
+)
+except requests.exceptions.RequestException as e:
+    print("Error:", e)
+```
+{% endtab %}
+
+{% tab title="Java (Spring Boot)" %}
+```java
+import java.util.List;
+
+public class NotificationRequest {
+    public String notification_type = "email";
+    public String template = "messaging";
+    public String notification_event = "messaging";
+    public List<String> user_details = List.of("user@example.com");
+    public Object attachments = null;
+    public boolean sensitive = false;
+}
+```
+{% endtab %}
+{% endtabs %}
 
 #### Response Format
 
-Success Response
+**Success Response**
 
 ```json
 {
@@ -91,8 +191,6 @@ Success Response
 ```
 
 **Error Response**
-
-Error Response
 
 ```json
 {
