@@ -50,7 +50,7 @@ Store the reference code from the response for tracking and potential troublesho
 {% tabs %}
 {% tab title="Curl" %}
 ```bash
-curl --location 'https://api.moneta.ng/api/v2/notification' \
+curl --location '{{url}}' \
 --header 'Accept: application/json' \
 --header 'X-Client-Id: {{client_Id}}' \
 --header 'X-Client-Secret: {{client_secret}}' \
@@ -76,7 +76,7 @@ curl --location 'https://api.moneta.ng/api/v2/notification' \
 
 {% tab title="JavaScript" %}
 ```javascript
-const url = 'https://api.example.com/notify';
+const url = '{{url}}';
 const data = {
     "notification_type": "email",
     "template": "messaging",
@@ -101,8 +101,12 @@ fetch(url, {
 
 {% tab title="PHP" %}
 ```php
-<?php
-$url = 'https://api.example.com/notify';
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+$client = new Client();
+$url = '{{$url}}';
+
 $data = [
     "notification_type" => "email",
     "template" => "messaging",
@@ -112,27 +116,57 @@ $data = [
     "sensitive" => false
 ];
 
-$payload = json_encode($data);
+try {
+    // Guzzle automatically JSON-encodes arrays when using the 'json' key
+    $response = $client->post($url, [
+        'json' => $data
+    ]);
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen($payload)
-]);
-
-$response = curl_exec($ch);
-
-if (curl_errno($ch)) {
-    echo 'Error: ' . curl_error($ch);
-} else {
-    echo 'Response: ' . $response;
+    echo "Status Code: " . $response->getStatusCode() . "\n";
+    echo "Response: " . $response->getBody();
+} catch (RequestException $e) {
+    echo "Error: " . $e->getMessage();
 }
+```
+{% endtab %}
 
-curl_close($ch);
-?>
+{% tab title="Laravel" %}
+```php
+se Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+class NotificationController extends Controller
+{
+    public function sendNotification()
+    {
+        $url = '{{$url}}';
+
+        $payload = [
+            "notification_type" => "email",
+            "template" => "messaging",
+            "notification_event" => "messaging",
+            "user_details" => ["user@example.com"],
+            "attachments" => null,
+            "sensitive" => false
+        ];
+
+        // Send the POST request
+        $response = Http::post($url, $payload);
+
+        // Check if the request was successful (2xx status code)
+        if ($response->successful()) {
+            return response()->json([
+                'message' => 'Notification sent successfully!',
+                'data' => $response->json() // Decodes JSON response automatically
+            ]);
+        }
+
+        // Handle errors (4xx or 5xx)
+        return response()->json([
+            'error' => 'Failed to send notification',
+            'status' => $response->status()
+        ], $response->status());
+    }
 ```
 {% endtab %}
 
@@ -140,7 +174,7 @@ curl_close($ch);
 ```python
 import requests
 
-url = 'https://api.example.com/notify'
+url = '{{url}}'
 data = {
     "notification_type": "email",
     "template": "messaging",
@@ -162,6 +196,7 @@ except requests.exceptions.RequestException as e:
 
 {% tab title="Java (Spring Boot)" %}
 ```java
+// First, create a simple DTO (Data Transfer Object) matching your JSON structure:
 import java.util.List;
 
 public class NotificationRequest {
@@ -171,6 +206,36 @@ public class NotificationRequest {
     public List<String> user_details = List.of("user@example.com");
     public Object attachments = null;
     public boolean sensitive = false;
+}
+
+import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+public class NotificationService {
+
+    public void sendNotification() {
+        String url = "{{url}}";
+        RestTemplate restTemplate = new RestTemplate();
+
+        // Create the payload object
+        NotificationRequest requestBody = new NotificationRequest();
+
+        // Set headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // Wrap request
+        HttpEntity<NotificationRequest> entity = new HttpEntity<>(requestBody, headers);
+
+        // Send POST request
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+
+        System.out.println("Response Status: " + response.getStatusCode());
+        System.out.println("Response Body: " + response.getBody());
+    }
 }
 ```
 {% endtab %}
