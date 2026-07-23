@@ -10,7 +10,7 @@ Receive payments from clients & customers easily by following the steps and samp
 
 Once you have successfully generated your [service token](./), generate a hash for your transaction by providing the following data:
 
-<table><thead><tr><th width="180">Fields</th><th width="113">Required</th><th>Description</th></tr></thead><tbody><tr><td>Email</td><td>True</td><td>Your customer's email</td></tr><tr><td>Amount</td><td>True</td><td>Amount to be paid <strong>(in kobo)</strong></td></tr><tr><td>Payment Type</td><td>True</td><td>The type of payment to be initialized (card or bank)</td></tr><tr><td>channel</td><td>string</td><td>card, bank_transfer (when you select bank payment type) and ussd</td></tr><tr><td>Callback URL</td><td>True</td><td>The URL that your customer will be redirected to after payment</td></tr><tr><td>Mac</td><td>True</td><td>Your Mac</td></tr></tbody></table>
+<table><thead><tr><th width="180">Fields</th><th width="113">Required</th><th>Description</th></tr></thead><tbody><tr><td>Email</td><td>True</td><td>Your customer's email</td></tr><tr><td>Amount</td><td>True</td><td>Amount to be paid <strong>(in kobo)</strong></td></tr><tr><td>Payment Type</td><td>True</td><td>The type of payment to be initialized (card or bank)</td></tr><tr><td>channel</td><td>string</td><td>card, bank_transfer or ussd</td></tr><tr><td>Callback URL</td><td>True</td><td>The URL that your customer will be redirected to after payment</td></tr><tr><td>Mac</td><td>True</td><td>Your Mac</td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="JavaScript" %}

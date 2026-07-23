@@ -2,7 +2,7 @@
 description: Sub accounts
 ---
 
-# Bank Accounts
+# Payment Sub Accounts
 
 Bank accounts serves as payment collection points for which you can split incoming payments into. With bank accounts, payments made by your customers can be sent into the accounts you specify when you define transaction splits for the sub account.
 

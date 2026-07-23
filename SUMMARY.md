@@ -7,7 +7,7 @@
   * [Accept Payment](payments/accept-payment.md)
   * [Payment Example](payments/payment-example.md)
   * [Verify Payment](payments/verify-payment.md)
-  * [Payment Sub Accounts](payments/payment-sub-accounts.md)
+  * [Payment Sub Accounts](payments/bank-accounts.md)
   * [Transaction Split](payments/transaction-split.md)
   * [Webhooks](payments/webhooks.md)
 * [Recurring Subscriptions](recurring-subscriptions/README.md)
