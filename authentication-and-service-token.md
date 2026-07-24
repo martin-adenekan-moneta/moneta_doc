@@ -6,9 +6,9 @@ icon: lock
 
 
 
-Before you can access the payment API endpoints or any other services , you are expected to have a service token.&#x20;
+Before you can access the payment API endpoints or any other moneta services , you are expected to generate a service token.&#x20;
 
-To generate a service token (also known as service key), create a base64 hash string  using your client\_id, client\_secret, and **service key** for the current service you want to access e.g. payment gateway _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_&#x20;
+To generate a service token (also referred to as service key), create a base64 hash string  using your **client\_id**, **client\_secret**, and **service key** for the current service you want to access e.g. payment gateway _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_&#x20;
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -143,10 +143,10 @@ public class Base64Encoder
 {% endtab %}
 {% endtabs %}
 
-Once you have generated your base64 encoded token, add it to as `X-Auth-Token` header to generate your access token from the right endpoint.
+Once you have generated your base64 encoded hash token, add it to the header portion of the request to our generate token endpoint as `X-Auth-Token`.
 
 {% hint style="warning" %}
-Please ensure that all requests to our API services are coming from your backend server to protect your sensitive credentials.
+Please ensure that all requests to our API services are coming from your SSL protected backend server to protect your sensitive credentials.
 {% endhint %}
 
 #### Service Access Token Generation

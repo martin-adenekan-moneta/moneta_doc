@@ -33,6 +33,6 @@ You can using our endpoints on test mode by doing the following:
 
 ### IP WhiteList
 
-Moneta implements a very <mark style="color:$danger;">S</mark><mark style="color:$danger;">**trict IP Monitoring**</mark> policy to ensure your transactions are protected from third party hijack. Before a successful response can be gotten from our servers, you are expected to include your current IP address on your **IP whitelist** in your settings window. This will prevent unauthorized locations from sending payment request using your credentials even when it is exposed.
+Moneta implements a very <mark style="color:$danger;">S</mark><mark style="color:$danger;">**trict IP Monitoring**</mark> policy to ensure your transactions are protected from third party hijack. Before a successful response can be gotten from our servers, you are expected to include your system server IP address to your[ **IP whitelist** ](https://merchant.moneta.ng/account/profile-settings/api-keys)in your settings window. This will prevent unauthorized locations from sending payment request using your credentials even when it is exposed.
 
 Visit your dashboard settings and add your current IP in the list of allowed IP addresses to allow you access to API calls from our servers.
