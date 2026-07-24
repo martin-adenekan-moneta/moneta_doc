@@ -5,9 +5,9 @@ icon: road-lock
 
 # Get Started
 
-We operate two project environments to assist you develop and test your integrations before going live (receiving real payments).  You can switch between both environments by clicking on the test mode toggle at the top right hand side of your screen (landscape mode) or in your main menu dropdown option (on mobile) [https://merchant.moneta.ng](https://merchant.moneta.ng/).
+We provide a testing environment to assist you develop and properly integrate with us before going live (receiving real payments).  You can switch between both environments by clicking on the test mode toggle at the top right hand side of your screen (landscape mode) or in your main menu dropdown option (on mobile) [https://merchant.moneta.ng](https://merchant.moneta.ng/).
 
-> Note: Each main page of this documentation contains urls representing **baseUrls for that particular service used on the page e.g. Use the above url for visiting the online merchant dashboard and other statistics.**
+> Note: Each main page of this documentation contains base urls representing **baseUrls for that particular service used on the page e.g. Use the above url for visiting the online merchant dashboard and other statistics.**
 
 ## Registration Steps
 
