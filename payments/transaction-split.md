@@ -53,7 +53,6 @@ async function createSplitConfig(baseUrl, serviceToken) {
     "subaccounts": ["0429425494", "0792382349"],
     "shares": [50, 50],
     "businessNames": ["SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"],
-    "bearer": 0,
     "perc_flat": "percentage",
     "alias": "New Split",
     "base_amount": 100
@@ -108,7 +107,6 @@ function createSplitConfigCurl(string $baseUrl, string $serviceToken): ?array
         "subaccounts" => ["0429425494", "0792382349"],
         "shares" => [50, 50],
         "businessNames" => ["SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"],
-        "bearer" => 0,
         "perc_flat" => "percentage",
         "alias" => "New Split",
         "base_amount" => 100
@@ -167,7 +165,6 @@ class SplitService
             "subaccounts" => ["0429425494", "0792382349"],
             "shares" => [50, 50],
             "businessNames" => ["SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"],
-            "bearer" => 0,
             "perc_flat" => "percentage",
             "alias" => "New Split",
             "base_amount" => 100
@@ -213,7 +210,6 @@ def create_split_config(base_url: str, service_token: str) -> Optional[Dict[str,
         "subaccounts": ["0429425494", "0792382349"],
         "shares": [50, 50],
         "businessNames": ["SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"],
-        "bearer": 0,
         "perc_flat": "percentage",
         "alias": "New Split",
         "base_amount": 100
@@ -256,7 +252,6 @@ def create_split_config_django(base_url: str, service_token: str) -> Optional[Di
         "subaccounts": ["0429425494", "0792382349"],
         "shares": [50, 50],
         "businessNames": ["SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"],
-        "bearer": 0,
         "perc_flat": "percentage",
         "alias": "New Split",
         "base_amount": 100
@@ -278,13 +273,6 @@ def create_split_config_django(base_url: str, service_token: str) -> Optional[Di
 # BASE_URL = settings.API_BASE_URL 
 # SERVICE_TOKEN = settings.SERVICE_TOKEN
 # result = create_split_config_django(BASE_URL, SERVICE_TOKEN)
-```
-{% endtab %}
-
-{% tab title="Ruby" %}
-```ruby
-message = "hello world"
-puts message
 ```
 {% endtab %}
 
@@ -321,7 +309,6 @@ public class SplitPaymentClient {
                 "subaccounts": ["0429425494", "0792382349"],
                 "shares": [50, 50],
                 "businessNames": ["SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"],
-                "bearer": 0,
                 "perc_flat": "percentage",
                 "alias": "New Split",
                 "base_amount": 100
@@ -389,7 +376,6 @@ public class SplitService {
             "subaccounts", List.of("0429425494", "0792382349"),
             "shares", List.of(50, 50),
             "businessNames", List.of("SANUSI OLUWOLE BLESSING", "SANUSI BLESSING OLUWOLE"),
-            "bearer", 0,
             "perc_flat", "percentage",
             "alias", "New Split",
             "base_amount", 100
