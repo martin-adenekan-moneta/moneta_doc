@@ -27,7 +27,7 @@ Types of Splits
 
 | Name            | Type             | Description                                                                                                                                                              |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| alias           | string           | An identifier for this split                                                                                                                                             |
+| alias           | string           | An identifier for this split (optional)                                                                                                                                  |
 | `subaccounts`   | array(number)    | An array of account sub accounts that you want to split funds into                                                                                                       |
 | `perc_flat`     | string           | Sharing type: percentage, flat or dynamic                                                                                                                                |
 | `shares`        | array (number)   | For percentage sharing the sum of this shares must be equal to 100, for flat sharing, the sum total must be equal to the amount paid by the customer                     |
