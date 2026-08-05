@@ -33,7 +33,7 @@ Types of Splits
 | `shares`        | array (number)   | For percentage sharing the sum of this shares must be equal to 100, for flat sharing, the sum total must be equal to the amount paid by the customer                     |
 | `base_amount`   | number \| string | for flat sharing, the sum of your shares must be equal to this base amount                                                                                               |
 | `businessnames` | array (string)   | This is an array of the **Account Name** for each account number provided in the order it is arranged in the `subaccounts` field above. (optional for dynamic splitting) |
-| bearer          | 0 or 1           | <p>0 - if you want to bear the VAT rate of these transactions or <br>1 - if you want to charge the accounts</p>                                                          |
+| bearer          | 0 or 1           | <p>0 - if you want to bear the VAT rate of the transactions <br>1 - if you want anyone paying to be charged the VAT </p>                                                 |
 
 Example
 
