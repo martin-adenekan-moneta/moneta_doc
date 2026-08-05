@@ -2,6 +2,14 @@
 
 Transaction splitting enables incoming funds to be separated into sub accounts you have created using any share logic you decide. You have the liberty to share to as many sub accounts as you wish but be sure your splitting rule is well defined.
 
+{% hint style="info" %}
+Types of Splits
+
+* `perc_flat` can be `"percentage" (for percentage based sharing formular)`, `"flat" (for fixed amount split from any payment)` **or** `"dynamic" (for raw amount splitting during payment generation)`.
+* `shares` must be a **comma‑separated list of numbers**&#x20;
+* No validation is performed that the sum of `shares` equals the transaction amount in dynamic splitting; the developer is responsible for that when using the split.
+{% endhint %}
+
 ## Create Transaction split
 
 <mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/split`
@@ -17,15 +25,15 @@ Transaction splitting enables incoming funds to be separated into sub accounts y
 
 **Body**
 
-| Name            | Type             | Description                                                                                                                             |
-| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| alias           | string           | An identifier for this split                                                                                                            |
-| `subaccounts`   | array(number)    | An array of account sub accounts that you want to split funds into                                                                      |
-| `perc_flat`     | string           | Sharing type: percentage or flat                                                                                                        |
-| `shares`        | array (number)   | For percentage sharing the sum of this shares must be equal to 100                                                                      |
-| `base_amount`   | number \| string | for flat sharing, the sum of your shares must be equal to this base amount                                                              |
-| `businessnames` | array (string)   | This is an array of the **Account Name** for each account number provided in the order it is arranged in the `subaccounts` field above. |
-| bearer          | 0 or 1           | <p>0 - if you want to bear the VAT rate of these transactions or <br>1 - if you want to charge the accounts</p>                         |
+| Name            | Type             | Description                                                                                                                                                              |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| alias           | string           | An identifier for this split                                                                                                                                             |
+| `subaccounts`   | array(number)    | An array of account sub accounts that you want to split funds into                                                                                                       |
+| `perc_flat`     | string           | Sharing type: percentage, flat or dynamic                                                                                                                                |
+| `shares`        | array (number)   | For percentage sharing the sum of this shares must be equal to 100, for flat sharing, the sum total must be equal to the amount paid by the customer                     |
+| `base_amount`   | number \| string | for flat sharing, the sum of your shares must be equal to this base amount                                                                                               |
+| `businessnames` | array (string)   | This is an array of the **Account Name** for each account number provided in the order it is arranged in the `subaccounts` field above. (optional for dynamic splitting) |
+| bearer          | 0 or 1           | <p>0 - if you want to bear the VAT rate of these transactions or <br>1 - if you want to charge the accounts</p>                                                          |
 
 Example
 
