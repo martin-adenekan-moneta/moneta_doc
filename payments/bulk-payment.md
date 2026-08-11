@@ -2,9 +2,9 @@
 
 Aside from the individual payment system, we provide a straightforward disbursement system for processing bulk payment.
 
-## bulk payment&#x20;
+## Bulk Disbursement
 
-<mark style="color:green;">`POST`</mark> /v2/debit-instruction/debit/bulk
+<mark style="color:green;">`POST`</mark>  \{{[baseUrl](./#base-url-for-payment)\}}/v2/debit-instruction/debit/bulk
 
 disbursement based on series of transactions to be paid at a go.
 
@@ -17,7 +17,7 @@ disbursement based on series of transactions to be paid at a go.
 
 **Body**
 
-<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>batch_reference</code></td><td>string</td><td>Name of the user</td></tr><tr><td><code>disbursement_webhook_url</code></td><td>number</td><td>Age of the user</td></tr><tr><td>beneficiaries</td><td>array</td><td><p>an array of beneficiary accounts to be paid into </p><pre class="language-postman_json"><code class="lang-postman_json">[{
+<table><thead><tr><th width="238">Name</th><th width="110">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>batch_reference</code></td><td>string</td><td>Name of the user</td></tr><tr><td><code>disbursement_webhook_url</code></td><td>number</td><td>Age of the user</td></tr><tr><td>beneficiaries</td><td>array</td><td><p>an array of beneficiary accounts to be paid into </p><pre class="language-postman_json"><code class="lang-postman_json">[{
       "transaction_reference": ".....",
       "amount": 39000,
       "account_number": "...",
@@ -319,20 +319,222 @@ puts message
 
 **Response**
 
+**Note: When a disbursement batch is submitted, when there are unsuccessful transactions in it, it doesn't cause the whole batch to fail, you can always resend any failed transaction when it has been resolved.**
+
 {% tabs %}
 {% tab title="200" %}
 ```json
 {
-  
+    "status": true,
+    "message": "Batch has been created for the Disbursement",
+    "data": {
+        "batch_reference": "BATCH-2025-TEST-002",
+        "processed_count": 2,
+        "unprocessed_count":0
+    },
+    "statusCode": 200,
+    "errors": []   
 }
 ```
 {% endtab %}
 
-{% tab title="400" %}
+{% tab title="Possible Errors Within a success response" %}
 ```json
 {
-  "error": "Invalid request"
+    "status": true,
+    "message": "Batch has been created for the Disbursement",
+    "data": {
+        "batch_reference": "BATCH-2025-TEST-002",
+        "processed_count": 20,
+        "unprocessed_count": 5
+    },
+    "statusCode": 200,
+    "errors": [
+        {
+            "beneficiary": {
+                "transaction_reference": "TXN-20250520-00070",
+                "amount": 0,
+                "account_number": "0123456770",
+                "institution_code": "000014",
+                "narration": "INVALID: zero amount fails min:1 validation"
+            },
+            "errors": [
+                {
+                    "field": "amount",
+                    "message": [
+                        "The amount field must be at least 1."
+                    ]
+                }
+            ]
+        },
+        {
+            "beneficiary": {
+                "transaction_reference": "TXN-20250520-00071",
+                "amount": -1500,
+                "account_number": "0123456771",
+                "institution_code": "000015",
+                "narration": "INVALID: negative amount not permitted"
+            },
+            "errors": [
+                {
+                    "field": "amount",
+                    "message": [
+                        "The amount field must be at least 1."
+                    ]
+                }
+            ]
+        },
+        {
+            "beneficiary": {
+                "transaction_reference": "TXN-20250520-00072",
+                "amount": 18000,
+                "account_number": null,
+                "institution_code": "000016",
+                "narration": "INVALID: account_number is empty"
+            },
+            "errors": [
+                {
+                    "field": "account_number",
+                    "message": [
+                        "The account number field is required."
+                    ]
+                }
+            ]
+        },
+        {
+            "beneficiary": {
+                "transaction_reference": "TXN-20250520-00074",
+                "amount": 33000,
+                "account_number": "0123456774",
+                "institution_code": null,
+                "narration": "INVALID: institution_code is empty"
+            },
+            "errors": [
+                {
+                    "field": "institution_code",
+                    "message": [
+                        "The institution code field is required."
+                    ]
+                }
+            ]
+        },
+        {
+            "beneficiary": {
+                "transaction_reference": "TXN-20250520-00051",
+                "amount": 7000,
+                "account_number": "0123456775",
+                "institution_code": "000013",
+                "narration": "INVALID: duplicate transaction_reference within batch (same as TXN-20250520-00051)"
+            },
+            "errors": [
+                {
+                    "field": "transaction_reference",
+                    "message": "Duplicate transaction_reference in this batch (first seen on row 1)."
+                }
+            ]
+        }
+    ]
 }
 ```
 {% endtab %}
 {% endtabs %}
+
+
+
+## Get Data
+
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/v2/debit-instruction/debit/bulk/data`
+
+Check the details of your batch or transaction in a batch
+
+**Headers**
+
+| Name            | Value                                               |
+| --------------- | --------------------------------------------------- |
+| Content-Type    | `application/json`                                  |
+| X-Service-Token |  `<`[`service_token`](./#payment-initialization)`>` |
+
+
+
+**Body**
+
+| Name                    | Type   | Description                                                                             |
+| ----------------------- | ------ | --------------------------------------------------------------------------------------- |
+| `batch_reference`       | string | Batch Reference (optional)                                                              |
+| `transaction_reference` | string | Transaction reference (provide if you want to view only a single transaction reference) |
+
+**Response**
+
+{% tabs %}
+{% tab title="Batch Response 200" %}
+```json
+{
+    "status": true,
+    "message": "Bulk Direct Debit Mandeto",
+    "data": [
+        {
+            "id": 52,
+            "user_id": 22,
+            "batch_reference": "BATCH-2025-TEST-002",
+            "transaction_reference": "TXN-20250520-00051",
+            "session_id": "Tu4X9XTiaukApdcg6VHpOhX9gwtYGx",
+            "moneta_reference": "MNTXTXN-202505260520234706874992979554",
+            "amount": "34000.00",
+            "beneficiary_account_name": null,
+            "beneficiary_account_number": "0123456751",
+            "destination_instituion_code": "000013",
+            "narration": "Staff training reimbursement",
+            "transaction_status": "FAILED",
+            "response_code": null,
+            "response_message": null,
+            "fee": "0.00",
+            "total_amount": "0.00",
+            "retry_count": 0,
+            "processed_at": null,
+            "created_at": "2026-05-20T22:47:06.000000Z",
+            "updated_at": "2026-05-20T22:47:06.000000Z"
+        }, ...
+    ],
+    "statusCode": 200,
+    "errors": null
+}
+```
+{% endtab %}
+
+{% tab title="Single Transaction 200" %}
+```json
+{
+    "status": true,
+    "message": "Bulk Direct Debit Mandeto",
+    "data":
+        {
+            "id": 62,
+            "user_id": 22,
+            "batch_reference": "BATCH-2025-TEST-002",
+            "transaction_reference": "TXN-20250520-00061",
+            "session_id": "8R96ZLguVqOGLzPJwWYgXuQSHuOiXc",
+            "moneta_reference": "MNTXTXN-202505260520234706606936241548",
+            "amount": "38500.00",
+            "beneficiary_account_name": null,
+            "beneficiary_account_number": "0123456761",
+            "destination_instituion_code": "090110",
+            "narration": "VFD MFB supplier payment",
+            "transaction_status": "SUCCESS",
+            "response_code": null,
+            "response_message": null,
+            "fee": "0.00",
+            "total_amount": "0.00",
+            "retry_count": 0,
+            "processed_at": null,
+            "created_at": "2026-05-20T22:47:06.000000Z",
+            "updated_at": "2026-05-20T23:25:55.000000Z"
+        }
+    "statusCode": 200,
+    "errors": null
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
