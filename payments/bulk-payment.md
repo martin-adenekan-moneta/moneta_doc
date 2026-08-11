@@ -34,7 +34,7 @@ disbursement based on series of transactions to be paid at a go.
 
 
 ```bash
-curl --location 'https://your-api-domain.com/v2/debit-instruction/debit/bulk' \
+curl --location '{{baseUrl}}/v2/debit-instruction/debit/bulk' \
 --header 'Content-Type: application/json' \
 --data '{
   "batch_reference": "883264642938",
@@ -61,7 +61,7 @@ curl --location 'https://your-api-domain.com/v2/debit-instruction/debit/bulk' \
 
 {% tab title="JavaScript" %}
 ```javascript
-const url = 'https://your-api-domain.com/v2/debit-instruction/debit/bulk';
+const url = '{{baseUrl}}/v2/debit-instruction/debit/bulk';
 
 const payload = {
   batch_reference: "883264642938",
@@ -109,7 +109,7 @@ sendBulkDebit();
 ```php
 <?php
 
-$url = 'https://your-api-domain.com/v2/debit-instruction/debit/bulk';
+$url = '{{baseUrl}}/v2/debit-instruction/debit/bulk';
 
 $payload = [
     "batch_reference" => "883264642938",
@@ -166,7 +166,7 @@ class DebitInstructionController extends Controller
 {
     public function sendBulkDebit()
     {
-        $url = 'https://your-api-domain.com/v2/debit-instruction/debit/bulk';
+        $url = '{{baseUrl}}/v2/debit-instruction/debit/bulk';
 
         $payload = [
             "batch_reference" => "883264642938",
@@ -216,7 +216,7 @@ class DebitInstructionController extends Controller
 ```python
 import requests
 
-url = "https://your-api-domain.com/v2/debit-instruction/debit/bulk"
+url = "{{baseUrl}}/v2/debit-instruction/debit/bulk"
 
 payload = {
     "batch_reference": "883264642938",
@@ -250,9 +250,9 @@ print("Response:", response.json())
 ```
 {% endtab %}
 
-{% tab title="Untitled" %}
-```java
-import java.util.List;
+{% tab title="Java" %}
+<pre class="language-java"><code class="lang-java"><strong>// DTO Classes
+</strong>import java.util.List;
 
 public record Beneficiary(
     String transaction_reference,
@@ -265,11 +265,10 @@ public record Beneficiary(
 public record BulkDebitRequest(
     String batch_reference,
     String disbursement_webhook_url,
-    List<Beneficiary> beneficiaries
+    List&#x3C;Beneficiary> beneficiaries
 ) {}
 
-
-
+//Service Class
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.http.MediaType;
@@ -287,7 +286,7 @@ public class DebitInstructionService {
     }
 
     public String sendBulkDebit() {
-        List<Beneficiary> beneficiaries = List.of(
+        List&#x3C;Beneficiary> beneficiaries = List.of(
             new Beneficiary("83487-2025954-00051", 39000, "0123869864", "000013", "Staff training "),
             new Beneficiary("6823498-089766", 39000, "09127843913", "000013", "imbursement")
         );
@@ -299,21 +298,15 @@ public class DebitInstructionService {
         );
 
         return restClient.post()
-                .uri("/v2/debit-instruction/debit/bulk")
+                .uri("{{baseUrl}}/v2/debit-instruction/debit/bulk")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(requestBody)
                 .retrieve()
                 .body(String.class);
     }
 }
-```
-{% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-message = "hello world"
-puts message
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
