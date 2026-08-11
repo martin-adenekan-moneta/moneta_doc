@@ -5,6 +5,7 @@
 * [Authentication & Service Token](authentication-and-service-token.md)
 * [Payments](payments/README.md)
   * [Accept Payment](payments/accept-payment.md)
+  * [Bulk Payment](payments/bulk-payment.md)
   * [Payment Example](payments/payment-example.md)
   * [Verify Payment](payments/verify-payment.md)
   * [Payment Sub Accounts](payments/bank-accounts.md)
