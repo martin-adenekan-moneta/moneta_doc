@@ -29,7 +29,7 @@ We provide T+1 settlement for gateway payments but instant payment for POS termi
 
 ### Base URL for Payment
 
-<table><thead><tr><th width="220.61968994140625">Payment Environment</th><th width="303.127685546875">Base Url</th><th>Purpose</th></tr></thead><tbody><tr><td>Staging</td><td>https://api-staging.moneta.ng/api</td><td>Development &#x26; Testing</td></tr><tr><td>Production</td><td>https://api.moneta.ng/api</td><td>Live Transactions (Real Money)</td></tr></tbody></table>
+<table><thead><tr><th width="220.61968994140625">Payment Environment</th><th width="303.127685546875">Base Url</th><th>Purpose</th></tr></thead><tbody><tr><td>Production</td><td>https://api.moneta.ng/api</td><td>For testing and live transactions </td></tr></tbody></table>
 
 
 
