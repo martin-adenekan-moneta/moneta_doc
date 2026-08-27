@@ -515,7 +515,7 @@ With dynamic splits, you can create split for a payment during transaction initi
 
 
 {% tabs %}
-{% tab title="Sample Payload" %}
+{% tab title="Sample JSON Payload" %}
 ```bash
 {
     "txnref": "24898990643", #optional- if you want to parse transaction code yourself
