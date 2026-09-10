@@ -12,7 +12,7 @@ Types of Splits
 
 ## Create Transaction split
 
-<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/split`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/v2/split`
 
 \<Create splitting rules for how incoming payments should be splitted >
 
@@ -47,7 +47,7 @@ Example
  * @returns {Promise<object | null>} The parsed JSON response object, or null on failure.
  */
 async function createSplitConfig(baseUrl, serviceToken) {
-  const url = `${baseUrl}/split`;
+  const url = `${baseUrl}/v2/split`;
   
   const payload = {
     "subaccounts": ["0429425494", "0792382349"],
@@ -101,7 +101,7 @@ async function createSplitConfig(baseUrl, serviceToken) {
  */
 function createSplitConfigCurl(string $baseUrl, string $serviceToken): ?array
 {
-    $url = $baseUrl . '/split';
+    $url = $baseUrl . '/v2/split';
     
     $payload = [
         "subaccounts" => ["0429425494", "0792382349"],
@@ -159,7 +159,7 @@ class SplitService
      */
     public function createSplitConfig(string $baseUrl, string $serviceToken): ?array
     {
-        $url = $baseUrl . '/split';
+        $url = $baseUrl . '/v2/split';
         
         $payload = [
             "subaccounts" => ["0429425494", "0792382349"],
@@ -204,7 +204,7 @@ def create_split_config(base_url: str, service_token: str) -> Optional[Dict[str,
     :param service_token: The X-Service-Token value.
     :return: The decoded JSON response dictionary, or None on failure.
     """
-    url = f"{base_url}/split"
+    url = f"{base_url}/v2/split"
     
     payload = {
         "subaccounts": ["0429425494", "0792382349"],
@@ -246,7 +246,7 @@ from django.conf import settings # Use settings for base URL/Token
 
 def create_split_config_django(base_url: str, service_token: str) -> Optional[Dict[str, Any]]:
     # ... (same implementation as Python's create_split_config function above)
-    url = f"{base_url}/split"
+    url = f"{base_url}/v2/split"
     
     payload = {
         "subaccounts": ["0429425494", "0792382349"],
@@ -301,7 +301,7 @@ public class SplitPaymentClient {
     public static String createSplitConfig(String baseUrl, String serviceToken) 
             throws IOException, InterruptedException {
         
-        String url = baseUrl + "/split";
+        String url = baseUrl + "/v2/split";
         
         // Manual construction of the JSON payload string
         String jsonPayload = """
@@ -382,7 +382,7 @@ public class SplitService {
         );
 
         return webClient.post()
-                .uri("/split") // Combines with the base URL set in the constructor
+                .uri("/v2/split") // Combines with the base URL set in the constructor
                 .header("X-Service-Token", serviceToken)
                 .bodyValue(payload) // Spring handles JSON serialization automatically
                 .retrieve()
@@ -445,7 +445,7 @@ public class SplitApiClient
 
         try
         {
-            HttpResponseMessage response = await _httpClient.PostAsync("/split", content);
+            HttpResponseMessage response = await _httpClient.PostAsync("/v2/split", content);
 
             // Throw an exception if the status code is not successful
             response.EnsureSuccessStatusCode(); 

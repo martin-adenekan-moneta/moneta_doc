@@ -2,7 +2,7 @@
 
 ## Payment / Transaction Verification
 
-<mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./#overview)`}}/`transaction/charge/verify/reference
+<mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./#overview)`}}/v2/`transaction/charge/verify/reference
 
 \<Verify Payment status>
 
@@ -25,7 +25,7 @@ Example
 {% tab title="JavaScript" %}
 ```javascript
 async function verifyTransaction(baseUrl, serviceToken, reference) {
-  const url = `${baseUrl}/transaction/charge/verify/reference`;
+  const url = `${baseUrl}/v2/transaction/charge/verify/reference`;
   
   try {
     const response = await fetch(url, {
@@ -49,7 +49,7 @@ async function verifyTransaction(baseUrl, serviceToken, reference) {
 ```php
 <?php
 function verifyTransactionCurl($baseUrl, $token, $reference) {
-    $url = $baseUrl . '/transaction/charge/verify/reference';
+    $url = $baseUrl . '/v2/transaction/charge/verify/reference';
     $payload = json_encode(['reference' => $reference]);
 
     $ch = curl_init($url);
@@ -76,7 +76,7 @@ use Illuminate\Support\Facades\Http;
 
 public function verify(string $baseUrl, string $token, string $reference) {
     return Http::withHeaders(['X-Service-Token' => $token])
-        ->post("$baseUrl/transaction/charge/verify/reference", [
+        ->post("$baseUrl/v2/transaction/charge/verify/reference", [
             'reference' => $reference
         ])->json();
 }
@@ -90,7 +90,7 @@ public function verify(string $baseUrl, string $token, string $reference) {
 import requests
 
 def verify_transaction(base_url, token, reference):
-    url = f"{base_url}/transaction/charge/verify/reference"
+    url = f"{base_url}/v2/transaction/charge/verify/reference"
     headers = {"X-Service-Token": token, "Content-Type": "application/json"}
     payload = {"reference": reference}
     
@@ -106,7 +106,7 @@ import requests
 from django.conf import settings
 
 def django_verify_payment(reference):
-    url = f"{settings.API_BASE_URL}/transaction/charge/verify/reference"
+    url = f"{settings.API_BASE_URL}/v2/transaction/charge/verify/reference"
     headers = {"X-Service-Token": settings.SERVICE_TOKEN}
     
     response = requests.post(url, json={"reference": reference}, headers=headers)
@@ -124,7 +124,7 @@ public String verifyTransaction(String baseUrl, String token, String reference) 
     String json = "{\"reference\":\"" + reference + "\"}";
 
     HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(baseUrl + "/transaction/charge/verify/reference"))
+        .uri(URI.create(baseUrl + "/v2/transaction/charge/verify/reference"))
         .header("X-Service-Token", token)
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(json))
@@ -143,7 +143,7 @@ import java.util.Map;
 
 public Mono<Map> verifyTransaction(String reference) {
     return webClient.post()
-        .uri("/transaction/charge/verify/reference")
+        .uri("/v2/transaction/charge/verify/reference")
         .header("X-Service-Token", serviceToken)
         .bodyValue(Map.of("reference", reference))
         .retrieve()
@@ -161,7 +161,7 @@ public async Task<string> VerifyTransactionAsync(string baseUrl, string token, s
     client.DefaultRequestHeaders.Add("X-Service-Token", token);
     
     var response = await client.PostAsJsonAsync(
-        $"{baseUrl}/transaction/charge/verify/reference", 
+        $"{baseUrl}/v2/transaction/charge/verify/reference", 
         new { reference = reference }
     );
     

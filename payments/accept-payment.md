@@ -215,7 +215,7 @@ Once you have successfully created an hash for your transaction, proceed to crea
 
 Endpoint URL
 
-<mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./)`}}/transaction/initialize`
+<mark style="color:green;">`POST`</mark>  `{{`[`baseUrl`](./)`}}/v2/transaction/initialize`
 
 
 

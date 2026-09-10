@@ -11,9 +11,11 @@ You are expected to complete your account  setup & KYC steps to setup your settl
 
 To setup the [settlement account ](transaction-split.md)where all funds will be sent to by visiting the **Account** tab on your settings page.&#x20;
 
-Visit: [https://merchant.moneta.ng/account/profile-settings/bank-accounts](https://merchant.moneta.ng/account/profile-settings/bank-accounts)
+Visit: [https://merchant.moneta.ng/account/profile-settings/bank-accounts](https://merchant.moneta.ng/account/profile-settings/bank-accounts)  to complete this action.
 
-Next  add your server to the IP whitelist (If you are on production) and settings page to get your API credentials.
+
+
+Next  task is to add your server ip address to the IP whitelist (If you are on production) and settings page to get your API credentials.
 
 &#x20;Once you have your **Client ID, Client Secret, Service Keys** (from either the Staging or Production environment delivered to your email), and **MAC Key** on the settings "[API keys](https://merchant.moneta.ng/account/profile-settings/api-keys)" page,  you can start testing or receiving payment .
 

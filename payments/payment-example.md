@@ -16,7 +16,7 @@ Remember to use the[ baseUrl ](./#payment-requirement)provided for the environme
  */
 class MonetaPaymentClient {
     // --- Configuration Constants ---
-    static BASE_URI = 'BASE_URL'; // Replace with 'https://api-staging.moneta.ng/api/v2/' for staginag
+    static BASE_URI = 'BASE_URL'; // Replace with 'https://api.moneta.ng/api/v2/' 
     static TOKEN_ENDPOINT = 'generate-access-token';
     static INITIALIZE_ENDPOINT = 'transaction/initialize';
     static VERIFY_ENDPOINT = 'transaction/initialize'; // Based on your PHP code
@@ -245,7 +245,7 @@ app.use(bodyParser.json());
  * Endpoint to initialize a transaction.
  * Request body must contain: email, amount, payment_type, callback_url
  */
-app.post('/api/moneta/initialize', async (req, res) => {
+app.post('{{baseUrl}}/api/moneta/initialize', async (req, res) => {
     const { email, amount, payment_type, callback_url, use_split, json } = req.body;
 
     if (!email || !amount || !payment_type || !callback_url) {

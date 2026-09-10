@@ -8,7 +8,7 @@ Bank accounts serves as payment collection points for which you can split incomi
 
 ## Create Sub Account
 
-<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#overview)`}}/subaccount`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#overview)`}}/v2/subaccount`
 
 \<Create a new sub account for funds payment splitting>
 
@@ -41,7 +41,7 @@ Example
  * @returns {Promise<object | null>} The parsed JSON response object, or null on failure.
  */
 async function createSubaccount(baseUrl, serviceToken, accountNumber, bankId) {
-  const url = `${baseUrl}/subaccount`;
+  const url = `${baseUrl}/v2/subaccount`;
   
   const payload = {
     account_number: accountNumber,
@@ -110,7 +110,7 @@ async function createSubaccount(baseUrl, serviceToken, accountNumber, bankId) {
  */
 function createSubaccountCurl(string $baseUrl, string $serviceToken, string $accountNumber, int $bankId): ?array
 {
-    $url = $baseUrl . '/subaccount';
+    $url = $baseUrl . '/v2/subaccount';
     
     $payload = [
         "account_number" => $accountNumber,
@@ -184,7 +184,7 @@ class SubaccountService
      */
     public function createSubaccount(string $baseUrl, string $serviceToken, string $accountNumber, int $bankId): ?array
     {
-        $url = $baseUrl . '/subaccount';
+        $url = $baseUrl . '/v2/subaccount';
         
         $payload = [
             'account_number' => $accountNumber,
@@ -234,7 +234,7 @@ def create_subaccount(base_url: str, service_token: str, account_number: str, ba
     :param bank_id: The bank ID integer.
     :return: The decoded JSON response dictionary, or None on failure.
     """
-    url = f"{base_url}/subaccount"
+    url = f"{base_url}/v2/subaccount"
     
     payload = {
         "account_number": account_number,
@@ -299,7 +299,7 @@ public class SubaccountClient {
     public static String createSubaccount(String baseUrl, String serviceToken, String accountNumber, int bankId) 
             throws IOException, InterruptedException {
         
-        String url = baseUrl + "/subaccount";
+        String url = baseUrl + "/v2/subaccount";
         
         // Constructing the JSON payload string
         String jsonPayload = String.format("""
@@ -391,7 +391,7 @@ public class Main {
 
 ## Get Sub Accounts
 
-<mark style="color:green;">`GET`</mark> `{{baseURL}}/subaccounts`
+<mark style="color:green;">`GET`</mark> `{{baseURL}}/v2/subaccounts`
 
 \<Get  Sub account Information>
 
