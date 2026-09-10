@@ -151,7 +151,7 @@ Please ensure that all requests to our API services are coming from your SSL pro
 
 #### Service Access Token Generation
 
-<mark style="color:green;">`POST`</mark> `{{baseUrl}}/generate-access-token`
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/generate-access-token`
 
 \<This endpoint generates your access token for payment API Services>
 
