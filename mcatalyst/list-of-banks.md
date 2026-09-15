@@ -38,7 +38,7 @@ curl --request POST \
 
 {% tab title="JavaScript" %}
 ```javascript
-const url = new URL(baseUrl+"/v2/get-banks");
+const url = new URL(baseUrl+"/v2/banks");
 
 const headers = {
     "X-Service-Token": "..................................",
@@ -56,7 +56,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = baseUrl+'/v2/get-banks';
+$url = baseUrl+'/v2/banks';
 $response = $client->get(
     $url,
     [
@@ -77,7 +77,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = baseUrl+'/v2/get-banks'
+url = baseUrl+'/v2/banks'
 headers = {
   'X-Service-Token': '.................................',
   'Content-Type': 'application/json',

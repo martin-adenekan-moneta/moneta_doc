@@ -8,7 +8,7 @@ This method fetches mandates for the currently authenticated user, using optiona
 
 ## Create Debit Instruction
 
-<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/debit-instruction/create`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../#base-url-for-mcatalyst)`}}/v2/debit-instruction/create`
 
 
 
@@ -34,7 +34,7 @@ Examples
 {% tab title="Curl" %}
 ```bash
 curl --request POST \
-    "baseUrl/v2/debit-instruction/create" \
+    "{{baseUrl}}/v2/debit-instruction/create" \
     --header "X-Service-Token: ............................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \

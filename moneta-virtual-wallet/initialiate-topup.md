@@ -44,7 +44,7 @@ After payment is completed, the user will be redirected back to your application
 bashCopy
 
 ```bash
-curl --location 'https://api.moneta.ng/api/v2/initiate/payment' \
+curl --location '{{baseUrl}}/v2/initiate/payment' \
 --header 'Accept: application/json' \
 --header 'X-Client-Id: {{client_Id}}' \
 --header 'X-Client-Secret: {{client_secret}}' \
