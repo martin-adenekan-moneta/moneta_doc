@@ -4,7 +4,7 @@ This endpoint retrieves the list of avialable banks&#x20;
 
 ##
 
-<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./#base-url-for-mcatalyst)`/v2/get-banks`
+<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./#base-url-for-mcatalyst)`/v2/banks`
 
 &#x20;Remember to include your X-Service-Token header as [shown here](./)
 
