@@ -5,7 +5,7 @@ icon: road-lock
 
 # Get Started
 
-We provide a testing environment to assist you develop and properly integrate with us before going live (receiving real payments).  You can switch between both environments by clicking on the test mode toggle at the top right hand side of your screen (landscape mode) or in your main menu dropdown option (on mobile) [https://merchant.moneta.ng](https://merchant.moneta.ng/).
+We provide a testing environment to assist you develop and properly integrate with us before going live (receiving real payments).  You can switch between both environments by clicking on the test mode toggle at the top right hand side of your screen or in your main menu dropdown option if you are using a mobile phone. Kindly visit [https://merchant.moneta.ng](https://merchant.moneta.ng/).
 
 > Note: Each main page of this documentation contains base urls representing **baseUrls for that particular service used on the page e.g. Use the above url for visiting the online merchant dashboard and other statistics.**
 
@@ -19,7 +19,7 @@ You can using our endpoints on test mode by doing the following:
 
 1. **Create an account:** Sign up at the [Merchant Portal](https://merchant.moneta.ng/). As a developer, you can immediately access the testing environment to explore our API endpoints features.
 2. **Verify Your Email:** Check your inbox for a verification link sent to your registered email address. You need to click this link to confirm and activate your account.
-3.  _**Retrieve your API Tokens:**_ Once logged in, follow these steps to get your credentials:&#x20;
+3.  **Retrieve your API Credentials**_**:**_ Once logged in, follow these steps to get your credentials:&#x20;
 
     1. Navigate to Settings > API Keys or go directly to the [API Settings Page](https://merchant.moneta.ng/account/profile-settings/api-keys).
     2. Scroll down to the Client Credentials section.

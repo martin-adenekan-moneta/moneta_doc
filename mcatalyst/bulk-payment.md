@@ -4,16 +4,16 @@ Aside from the individual payment system, we provide a straightforward disbursem
 
 ## Bulk Disbursement
 
-<mark style="color:green;">`POST`</mark>  \{{[baseUrl](./#base-url-for-payment)\}}/v2/debit-instruction/debit/bulk
+<mark style="color:green;">`POST`</mark>  \{{[baseUrl](../payments/#base-url-for-payment)\}}/v2/debit-instruction/debit/bulk
 
 disbursement based on series of transactions to be paid at a go.
 
 **Headers**
 
-| Name            | Value                                               |
-| --------------- | --------------------------------------------------- |
-| Content-Type    | `application/json`                                  |
-| X-Service-Token |  `<`[`service_token`](./#payment-initialization)`>` |
+| Name            | Value                                                         |
+| --------------- | ------------------------------------------------------------- |
+| Content-Type    | `application/json`                                            |
+| X-Service-Token |  `<`[`service_token`](../payments/#payment-initialization)`>` |
 
 **Body**
 
@@ -436,16 +436,16 @@ public class DebitInstructionService {
 
 ## Get Data
 
-<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](./#base-url-for-payment)`}}/v2/debit-instruction/debit/bulk/data`
+<mark style="color:green;">`POST`</mark> `{{`[`baseUrl`](../payments/#base-url-for-payment)`}}/v2/debit-instruction/debit/bulk/data`
 
 Check the details of your batch or transaction in a batch
 
 **Headers**
 
-| Name            | Value                                               |
-| --------------- | --------------------------------------------------- |
-| Content-Type    | `application/json`                                  |
-| X-Service-Token |  `<`[`service_token`](./#payment-initialization)`>` |
+| Name            | Value                                                         |
+| --------------- | ------------------------------------------------------------- |
+| Content-Type    | `application/json`                                            |
+| X-Service-Token |  `<`[`service_token`](../payments/#payment-initialization)`>` |
 
 
 

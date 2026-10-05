@@ -21,10 +21,10 @@ Bank accounts serves as payment collection points for which you can split incomi
 
 **Body**
 
-| Name             | Type   | Description         |
-| ---------------- | ------ | ------------------- |
-| `account_number` | string | Bank Account Number |
-| `bank_id`        | number | Bank ID             |
+| Name             | Type   | Description                                                                     |
+| ---------------- | ------ | ------------------------------------------------------------------------------- |
+| `account_number` | string | Bank Account Number                                                             |
+| `bank_id`        | number | Bank ID gotten from the list of[ banks endpoint](../mcatalyst/list-of-banks.md) |
 
 Example
 

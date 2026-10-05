@@ -181,26 +181,6 @@ public async Task<string> VerifyTransactionAsync(string baseUrl, string token, s
     "data": {
         "status": "pending", 
         "amount": 101.7,
-        "gateway_scheme": {
-            "id": 6,
-            "gateway": "4",
-            "scheme_name": "Flutterwave Scheme 3",
-            "scheme_category": null,
-            "actual_scheme_category": "percentage",
-            "merchant_scheme_value": "1.7",
-            "merchant_scheme_category": "percentage",
-            "actual_scheme_value": "1.4",
-            "status": "1",
-            "created_at": null,
-            "updated_at": null,
-            "stamp_duty_fee": 50,
-            "capped_fee": "2000",
-            "merchant_capped_fee": "0",
-            "commission_type": "percentage",
-            "merchant_commission": "0",
-            "agent_commission": "0",
-            "reseller_commission": "0"
-        },
         "payer_details": {
             "first_name": null,
             "last_name": null

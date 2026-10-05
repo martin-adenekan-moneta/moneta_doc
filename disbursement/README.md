@@ -1,9 +1,11 @@
 ---
-description: Moneta NiBSS
+description: >-
+  Moneta disbursement service provides you with a way to automate payment e.g
+  payroll
 icon: repeat
 ---
 
-# Recurring Subscriptions
+# Disbursement
 
 ## Initialization
 
