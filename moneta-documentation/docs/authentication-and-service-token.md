@@ -1,0 +1,291 @@
+---
+icon: lock
+---
+
+# Authentication & Service Token
+
+
+
+Before you can access the payment API endpoints or any other moneta services , you are expected to generate a service token.&#x20;
+
+To generate a service token (also referred to as service key), create a base64 hash string  using your **client\_id**, **client\_secret**, and **service key** for the service you want to access e.g. payment gateway _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_&#x20;
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+// Variables
+const client_id = "[CLIENT_ID]";
+const client_secret = "[CLIENT_SECRET]";
+const service_key = "[SERVICE_KEY]";
+
+function encodeToBase64(client_id, client_secret, service_key) {
+    // 1. Concatenate the values using a colon
+    const mystring = `${client_id}:${client_secret}:${service_key}`;
+    
+    // 2. Create a Buffer from the string (specifying UTF-8 encoding)
+    const buffer = Buffer.from(mystring, 'utf8');
+    
+    // 3. Base64 encode the buffer and return the resulting string
+    // The 'base64' argument specifies the encoding for the output string
+    return buffer.toString('base64');
+}
+
+const token = encodeToBase64(client_id, client_secret, service_key);
+console.log(token);
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+$client_id = "[CLIENT_ID]";
+$client_secret = "[CLIENT_SECRET]";
+$service_key = "[SERVICE_KEY]";
+
+function encode_to_base64(...$values){
+    return base64_encode(implode(':',$values));
+}
+$token = encode_to_base64($client_id,$client_secret,$service_key);
+echo $token;
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import base64
+
+# Variables
+client_id = "[CLIENT_ID]"
+client_secret = "[CLIENT_SECRET]"
+service_key = "[SERVICE_KEY]"
+
+def encode_to_base64(client_id, client_secret, service_key):
+    # 1. Concatenate the values using a colon
+    mystring = f"{client_id}:{client_secret}:{service_key}"
+    
+    # 2. Convert the string to bytes (UTF-8)
+    string_bytes = mystring.encode('utf-8')
+    
+    # 3. Base64 encode the bytes
+    encoded_bytes = base64.b64encode(string_bytes)
+    
+    # 4. Convert the encoded bytes back to a string and return
+    return encoded_bytes.decode('utf-8')
+
+token = encode_to_base64(client_id, client_secret, service_key)
+print(token)
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+import java.util.Base64;
+import java.nio.charset.StandardCharsets;
+
+public class Base64Encoder {
+
+    // Variables
+    private static final String CLIENT_ID = "[CLIENT_ID]";
+    private static final String CLIENT_SECRET = "[CLIENT_SECRET]";
+    private static final String SERVICE_KEY = "[SERVICE_KEY]";
+
+    public static String encodeToBase64(String clientId, String clientSecret, String serviceKey) {
+        // 1. Concatenate the values using a colon
+        String myString = String.join(":", clientId, clientSecret, serviceKey);
+        
+        // 2. Convert the string to bytes using UTF-8 encoding
+        byte[] stringBytes = myString.getBytes(StandardCharsets.UTF_8);
+        
+        // 3. Base64 encode the bytes and convert the resulting byte array back to a string
+        String encodedString = Base64.getEncoder().encodeToString(stringBytes);
+        
+        return encodedString;
+    }
+
+    public static void main(String[] args) {
+        String token = encodeToBase64(CLIENT_ID, CLIENT_SECRET, SERVICE_KEY);
+        System.out.println(token);
+    }
+}
+```
+{% endtab %}
+
+{% tab title="C# (.Net)" %}
+```csharp
+using System;
+using System.Text;
+
+public class Base64Encoder
+{
+    // Variables
+    private const string ClientId = "[CLIENT_ID]";
+    private const string ClientSecret = "[CLIENT_SECRET]";
+    private const string ServiceKey = "[SERVICE_KEY]";
+
+    public static string EncodeToBase64(string clientId, string clientSecret, string serviceKey)
+    {
+        // 1. Concatenate the values using a colon
+        string myString = $"{clientId}:{clientSecret}:{serviceKey}";
+        
+        // 2. Convert the string to a byte array using UTF-8 encoding
+        byte[] stringBytes = Encoding.UTF8.GetBytes(myString);
+        
+        // 3. Base64 encode the byte array and return the string
+        return Convert.ToBase64String(stringBytes);
+    }
+
+    public static void Main()
+    {
+        string token = EncodeToBase64(ClientId, ClientSecret, ServiceKey);
+        Console.WriteLine(token);
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Once you have generated your base64 encoded hash token, add it to the header portion of the request to our generate token endpoint as `X-Auth-Token`.
+
+{% hint style="warning" %}
+Please ensure that all requests to our API services are coming from your SSL protected backend server to protect your sensitive credentials.
+{% endhint %}
+
+#### Service Access Token Generation
+
+<mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/generate-access-token`
+
+\<This endpoint generates your access token for payment API Services>
+
+**Headers**
+
+
+
+| Name         | Value                       |
+| ------------ | --------------------------- |
+| Content-Type | `application/json`          |
+| X-Auth-Token | `<generated service token>` |
+
+**Body  :** None
+
+**Examples:**
+
+{% tabs %}
+{% tab title="Curl" %}
+```
+curl -X POST "{{BaseUrl}}/v2/generate-access-token" \
+     -H "X-Auth-Token: YOUR_HASH_HERE" \
+     -H "Accept: application/json" \
+     -H "Content-Type: application/json"
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const axios = require('axios');
+
+async function generateServiceToken(hash) {
+    const url = {{BaseUrl}}/v2/generate-access-token";
+    
+    try {
+        const response = await axios.post(url, {}, {
+            headers: {
+                'X-Auth-Token': hash,
+                'Accept': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("API Request Failed:", error.response?.data || error.message);
+        throw error;
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Php" %}
+```php
+use Illuminate\Support\Facades\Http;
+
+public function generate_service_token($hash)
+{
+    $url = "{{BaseUrl}}/v2/generate-access-token";
+
+    $response = Http::withHeaders([
+        'X-Auth-Token' => $hash,
+        'Accept' => 'application/json',
+    ])->post($url);
+
+    return $response->json();
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+def generate_service_token(hash_token):
+    url = "{{BaseUrl}}/v2/generate-access-token"
+    
+    headers = {
+        'X-Auth-Token': hash_token,
+        'Accept': 'application/json'
+    }
+    
+    response = requests.post(url, headers=headers)
+    
+    # Raises an exception for 4XX/5XX errors
+    response.raise_for_status() 
+    
+    return response.json()
+```
+{% endtab %}
+
+{% tab title="Java (spring)" %}
+```java
+import org.springframework.web.client.RestTemplate;
+import org.springframework.http.*;
+import java.util.Map;
+
+public Map<String, Object> generateServiceToken(String hash) {
+    String url = "{{BaseUrl}}/v2/generate-access-token";
+    RestTemplate restTemplate = new RestTemplate();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("X-Auth-Token", hash);
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.set("Accept", "application/json");
+
+    HttpEntity<String> entity = new HttpEntity<>(headers);
+
+    ResponseEntity<Map> response = restTemplate.postForEntity(url, entity, Map.class);
+    
+    return response.getBody();
+}
+```
+{% endtab %}
+{% endtabs %}
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+```json
+{
+ "status": true,
+    "data": "3|bLBcbEd3oztpXyg9jSrK7HjWu2QuyeDpxfTKcQg9a0494882"
+}
+```
+{% endtab %}
+
+{% tab title="404" %}
+```json
+{
+  "responseErrorCode": "08",
+    "status": "error",
+    "message": "Service not available"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+***
