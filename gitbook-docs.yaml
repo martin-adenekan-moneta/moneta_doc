@@ -1,0 +1,17 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Moneta Documentation
+  structure:
+    - type: section
+      key: section-1
+      title: Moneta Documentation
+      path: moneta-documentation
+      default: true
+      children:
+        - type: space
+          key: space-1
+          title: Documentation
+          path: docs
+          default: true
+          content:
+            directory: ./moneta-documentation/docs
