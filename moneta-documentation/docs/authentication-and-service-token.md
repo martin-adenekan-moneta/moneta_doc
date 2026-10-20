@@ -6,9 +6,9 @@ icon: lock
 
 
 
-Before you can access the payment API endpoints or any other moneta services , you are expected to generate a service token.&#x20;
+Before you can access the payment API endpoints or any other moneta services , you are expected to generate a service token. Please note that your keys are environment depended i.e. when you toggle from test mode to live mode for the first time, you will need to generate a new client\_id and client\_secret keys to use as your production credentials.
 
-To generate a service token (also referred to as service key), create a base64 hash string  using your **client\_id**, **client\_secret**, and **service key** for the service you want to access e.g. payment gateway _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_&#x20;
+To generate a service token (also referred to as service key), create a base64 hash string  using your **client\_id**, **client\_secret**, and **service key** for the service you want to access e.g. payment gateway _<mark style="color:$info;">**(Check the mail sent to you after registration and copy the Service Key for Moneta Payment Gateway)**</mark>_ <mark style="color:$info;"></mark><mark style="color:$info;">.</mark>
 
 {% tabs %}
 {% tab title="JavaScript" %}
