@@ -159,10 +159,10 @@ Please ensure that all requests to our API services are coming from your SSL pro
 
 
 
-| Name         | Value                       |
-| ------------ | --------------------------- |
-| Content-Type | `application/json`          |
-| X-Auth-Token | `<generated service token>` |
+| Name         | Value                    |
+| ------------ | ------------------------ |
+| Content-Type | `application/json`       |
+| X-Auth-Token | `<generated auth token>` |
 
 **Body  :** None
 
