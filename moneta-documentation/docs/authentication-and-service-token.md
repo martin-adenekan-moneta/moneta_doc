@@ -149,6 +149,10 @@ Once you have generated your base64 encoded hash token, add it to the header por
 Please ensure that all requests to our API services are coming from your SSL protected backend server to protect your sensitive credentials.
 {% endhint %}
 
+#### Base URL for Generating Token
+
+<table><thead><tr><th width="220.61968994140625">Payment Environment</th><th width="303.127685546875">Base Url</th><th>Purpose</th></tr></thead><tbody><tr><td>Production</td><td>https://api.moneta.ng/api</td><td>For test and live mode </td></tr></tbody></table>
+
 #### Service Access Token Generation
 
 <mark style="color:green;">`POST`</mark> `{{baseUrl}}/v2/generate-access-token`
