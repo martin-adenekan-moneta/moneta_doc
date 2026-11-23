@@ -8,6 +8,7 @@
   * [Payment Example](payments/payment-example.md)
   * [Verify Payment](payments/verify-payment.md)
   * [Payment Sub Accounts](payments/payment-sub-accounts.md)
+  * [Reseller Sub Merchant System](payments/reseller-sub-merchant-system.md)
   * [Transaction Split](payments/transaction-split.md)
   * [Webhooks](payments/webhooks.md)
 * [Moneta Virtual Wallet](moneta-virtual-wallet/README.md)
