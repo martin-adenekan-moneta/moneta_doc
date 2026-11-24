@@ -88,10 +88,10 @@ while splitting an exact amount or percentage of the payment to one or more sub-
 
 1. Authenticate with your   &#x20;Reseller   &#x20;Bearer token and MAC key.
 2. Omit _`sub_merchant_id`_ at the top level — the transaction record stays attributed to your Reseller account.
-3. Pass the `split` object specifying each recipient sub-merchant's settlement account ( subaccount + bank\_code ) and exact share (in kobo for _`flat`_, or % for _`percentage`_ ), along with your reseller account(or "_`Residue`_" for the remainder).
-4. Moneta resolves (or creates) each subaccount under your reseller profile and builds the bulk settlement breakdown once payment succeeds.
+3. Inside `split.subaccounts` , pass each sub-merchant's `sub_merchant_id` and share (in kobo for `flat` ,or % for `percentage` ). You do not need to pass `subaccount` or `bank_code` — Moneta verifies reseller ownership and automatically resolves each sub-merchant's configured default settlement account.
+4. For your own reseller cut, you can pass your reseller user ID as `sub_merchant_id` , or pass an explicit `subaccount` + `bank_code` with `"share": "Residue"` (both formats can be mixed in the same `subaccounts` array).
 
-Reseller-Owned Transaction Splitting Exact Amounts _(flat_)
+Example A - Reseller-Owned Transaction Splitting by `sub_merchant_id` (Fixed Amount / `flat` )
 
 ```json
 { 
@@ -105,14 +105,39 @@ Reseller-Owned Transaction Splitting Exact Amounts _(flat_)
     "split": { 
         "type": "flat", 
         "subaccounts": [ 
-            { "subaccount": "0123456789", "bank_code": "058", "share": 4200000 }, 
-            { "subaccount": "1122334455", "bank_code": "057", "share": "Residue"} 
+            { "sub_merchant_id": 1042, "share": 4200000 }, 
+            { "subaccount": "1122334455", "bank_code": "057", "share": "Residue" }
         ] 
     }
 }
 ```
 
-_In this example, out of ₦50,000 (`5000000`&#x20;in kobo), ₦42,000 is split to the sub-merchant's GTBank account (&#x20;`0123456789`) and the remaining ₦8,000 (&#x20;Residue) settles to the reseller's Zenith Bank account (`1122334455`)._
+Out of ₦50,000 (`5000000` kobo), ₦42,000 is automatically routed to sub-merchant\
+`1042's` default settlementaccount and the remaining ₦8,000 (`Residue`) settles to the reseller's Zenith Bank account (`1122334455`).
+
+Example B — Reseller-Owned Transaction Splitting to Multiple Sub-Merchants (`percentage`)
+
+```json
+{ 
+    "amount": 5000000, 
+    "email": "customer@example.com", 
+    "payment_type": "card", 
+    "callback_url": "https://reseller.example.com/payment/callback", 
+    "hash": "<HMAC_SHA512_HASH>", 
+    "json": "true", 
+    "transaction_fee_bearer": "merchant", 
+    "split": { 
+        "type": "percentage", 
+        "subaccounts": [ 
+            { "sub_merchant_id": 1042, "share": 70, "fee_bearer": true }, 
+            { "sub_merchant_id": 1088, "share": 20 }, 
+            { "subaccount": "1122334455", "bank_code": "057", "share": "Residue" } 
+        ] 
+    }
+}
+```
+
+
 
 #### Validation Rules & Constraints
 
@@ -190,19 +215,13 @@ Fee Bearer
 
 {% columns %}
 {% column width="33.33333333333333%" %}
-Sub-Merchant Ownership
+Sub-Merchant Ownership & Account Resolution
 {% endcolumn %}
 
 {% column width="66.66666666666667%" %}
-When passing top-level `sub_merchant_id`, the sub-merchant must already beonboarded under the authenticating reseller.
+Any `sub_merchant_id` (at the top level or inside `split.subaccounts`\[] ) mustbelong to the authenticating reseller. When used inside `split.subaccounts`\[] ,Moneta resolves that sub-merchant's default settlement subaccount automatically( `subaccount` and `bank_code` become optional for that entry).
 {% endcolumn %}
 {% endcolumns %}
-
-
-
-
-
-
 
 
 
