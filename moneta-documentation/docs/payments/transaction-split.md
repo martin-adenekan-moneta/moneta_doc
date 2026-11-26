@@ -5,7 +5,7 @@ Transaction splitting enables incoming funds to be separated into sub accounts y
 {% hint style="info" %}
 Types of Splits
 
-* `perc_flat` can be `"percentage" (for percentage based sharing formular)`, `"flat" (for fixed amount split from any payment)` **or** `"dynamic" (for raw amount splitting during payment generation)`.
+* `perc_flat` can be `"percentage" (for percentage based sharing formular)`, or `"flat" (for fixed amount split from any payment.`
 * `shares` must be a **comma‑separated list of numbers**&#x20;
 * No validation is performed that the sum of `shares` equals the transaction amount in dynamic splitting; the developer is responsible for that when using the split.
 {% endhint %}
@@ -25,14 +25,14 @@ Types of Splits
 
 **Body**
 
-| Name            | Type             | Description                                                                                                                                                              |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| alias           | string           | An identifier for this split (optional)                                                                                                                                  |
-| `subaccounts`   | array(number)    | An array of account sub accounts that you want to split funds into                                                                                                       |
-| `perc_flat`     | string           | Sharing type: percentage, flat or dynamic                                                                                                                                |
-| `shares`        | array (number)   | For percentage sharing the sum of this shares must be equal to 100, for flat sharing, the sum total must be equal to the amount paid by the customer                     |
-| `base_amount`   | number \| string | for flat sharing, the sum of your shares must be equal to this base amount                                                                                               |
-| `businessnames` | array (string)   | This is an array of the **Account Name** for each account number provided in the order it is arranged in the `subaccounts` field above. (optional for dynamic splitting) |
+| Name            | Type             | Description                                                                                                                                          |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| alias           | string           | An identifier for this split (optional)                                                                                                              |
+| `subaccounts`   | array(number)    | An array of account sub accounts that you want to split funds into                                                                                   |
+| `perc_flat`     | string           | Sharing type: percentage, or flat                                                                                                                    |
+| `shares`        | array (number)   | For percentage sharing the sum of this shares must be equal to 100, for flat sharing, the sum total must be equal to the amount paid by the customer |
+| `base_amount`   | number \| string | for flat sharing, the sum of your shares must be equal to this base amount                                                                           |
+| `businessnames` | array (string)   | This is an array of the **Account Name** for each account number provided in the order it is arranged in the `subaccounts` field above.              |
 
 Example
 
