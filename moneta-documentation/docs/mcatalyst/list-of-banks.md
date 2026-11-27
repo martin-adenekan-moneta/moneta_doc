@@ -4,7 +4,7 @@ This endpoint retrieves the list of avialable banks&#x20;
 
 ##
 
-<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./#base-url-for-mcatalyst)`/v2/get-banks`
+<mark style="color:green;">`POST`</mark> [`{{baseUrl}}`](./#base-url-for-mcatalyst)`/v2/banks`
 
 &#x20;Remember to include your X-Service-Token header as [shown here](./)
 
@@ -22,7 +22,7 @@ Body
 ```bash
 
 curl --request POST \
-    "{{baseUrl}}/v2/get-banks" \
+    "{{baseUrl}}/v2/banks" \
     --header "X-Service-Token: ................................" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" 
@@ -32,7 +32,7 @@ curl --request POST \
 
 {% tab title="JavaScript" %}
 ```javascript
-const url = new URL(baseUrl+"/v2/get-banks");
+const url = new URL(baseUrl+"/v2/banks");
 
 const headers = {
     "X-Service-Token": "..................................",
@@ -50,7 +50,7 @@ fetch(url, {
 {% tab title="PHP" %}
 ```php
 $client = new \GuzzleHttp\Client();
-$url = baseUrl+'/v2/get-banks';
+$url = baseUrl+'/v2/banks';
 $response = $client->get(
     $url,
     [
@@ -71,7 +71,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = baseUrl+'/v2/get-banks'
+url = baseUrl+'/v2/banks'
 headers = {
   'X-Service-Token': '.................................',
   'Content-Type': 'application/json',
@@ -90,20 +90,21 @@ response.json()
 {% tab title="200" %}
 ```json
 {
- "status": true,
-"message": "Banks fetched successfully",
-"data": [
- {
-  "id": 1,
-  "bank_name": "Bank A",
-  "mandate_bank_code": "000"
-  "institutionCode": "123456",
-  "moneta_code": "040",
-  "category": ""
- },
-],
-"statusCode": 200
-}
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "bank_name": "STERLING BANK",
+      "institutionCode": "000001",
+      "moneta_code": "232"
+    },
+    {
+      "id": 2,
+      "bank_name": "KEYSTONE BANK",
+      "institutionCode": "000002",
+      "moneta_code": "082"
+    },
+.....
 ```
 {% endtab %}
 
